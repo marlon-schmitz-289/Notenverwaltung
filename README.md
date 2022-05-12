@@ -8,5 +8,5 @@
 
 ## Description
 
-Small project to organize your grades in certain subjects
+Small project to organize your grades in certain subjects\n
 Users are manually added, like the subjects
