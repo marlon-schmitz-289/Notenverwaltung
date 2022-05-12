@@ -1,0 +1,42 @@
+﻿<Window x:Class="Notenverwaltung.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notenverwaltung"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="350"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize" Foreground="{x:Null}" Loaded="Window_Loaded">
+  <Grid>
+    <Border CornerRadius="10" Grid.RowSpan="2">
+      <Border.Background>
+        <LinearGradientBrush>
+          <GradientStop Color="#7be9f6" Offset="0.0"/>
+          <GradientStop Color="#f083da" Offset="1"/>
+        </LinearGradientBrush>
+      </Border.Background>
+      <Grid>
+        <Border>
+          <Image Margin="141,25,141,357" Source="noten.png" Stretch="Fill" Opacity="0.8"/>
+        </Border>
+        <Label Content="Notenverwaltung" HorizontalAlignment="Center" Margin="0,107,0,0" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" Foreground="#B2FFFFFF" FontFamily="Rockwell"/>
+
+        <Border Background="White" Margin="75,187,75,262"/>
+        <TextBox x:Name="tbxUsername" HorizontalAlignment="Left" Margin="75,169,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="178" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#FF818C96" Foreground="White"/>
+        <Image Source="kisspng.png" Margin="253,162,75,260"/>
+
+        <PasswordBox x:Name="pwbPassword" HorizontalAlignment="Left" Margin="75,225,0,0" VerticalAlignment="Top" Width="178" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" Password="Hurensohn" SelectionOpacity="1"/>
+        <Border Background="White" Margin="75,243,75,206"/>
+        <Image Source="password.png" Margin="253,215,74,204"/>
+
+        <Border x:Name="brdLogin" CornerRadius="10" Margin="125,330,125,100" BorderBrush="White" BorderThickness="2">
+          <Label Content="Login" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,0" Foreground="White" Margin="0,-2,0,0"/>
+        </Border>
+        <Border x:Name="brdClose" CornerRadius="10" Margin="125, 370, 125, 60" BorderBrush="White" BorderThickness="2">
+          <Label Foreground="White" Content="Schließen" Padding="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+      </Grid>
+    </Border>
+  </Grid>
+</Window>
