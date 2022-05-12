@@ -24,7 +24,7 @@
 
         <Border Background="White" Margin="75,187,75,262"/>
         <TextBox x:Name="tbxUsername" HorizontalAlignment="Left" Margin="75,169,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="178" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#FF818C96" Foreground="White"/>
-        <Image Source="kisspng.png" Margin="253,162,75,260"/>
+        <Image Source="username.png" Margin="253,162,75,260"/>
 
         <PasswordBox x:Name="pwbPassword" HorizontalAlignment="Left" Margin="75,225,0,0" VerticalAlignment="Top" Width="178" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" Password="Hurensohn" SelectionOpacity="1"/>
         <Border Background="White" Margin="75,243,75,206"/>
