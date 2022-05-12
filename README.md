@@ -4,7 +4,7 @@
 ### Marlon Schmitz
 @marlon-schmitz-289
 ### Paul Zipfel
-@paul-zipfel   
+@PaulZipfel
    
 ## Description
 Small project to organize your grades in certain subjects   
