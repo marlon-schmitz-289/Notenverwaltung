@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="350"
         AllowsTransparency="True" Background="Transparent"
-        WindowStyle="None" ResizeMode="NoResize" Foreground="{x:Null}" Loaded="Window_Loaded">
+        WindowStyle="None" ResizeMode="NoResize" Foreground="{x:Null}" Loaded="Window_Loaded" KeyDown="Window_KeyDown">
   <Grid>
     <Border CornerRadius="10" Grid.RowSpan="2">
       <Border.Background>
@@ -18,17 +18,17 @@
       </Border.Background>
       <Grid>
         <Border>
-          <Image Margin="141,25,141,357" Source="noten.png" Stretch="Fill" Opacity="0.8"/>
+          <Image Margin="141,25,141,357" Source="/UI/noten.png" Stretch="Fill" Opacity="0.8"/>
         </Border>
         <Label Content="Notenverwaltung" HorizontalAlignment="Center" Margin="0,107,0,0" VerticalAlignment="Top" Width="200" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" Foreground="#B2FFFFFF" FontFamily="Rockwell"/>
 
         <Border Background="White" Margin="75,187,75,262"/>
         <TextBox x:Name="tbxUsername" HorizontalAlignment="Left" Margin="75,169,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="178" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#FF818C96" Foreground="White"/>
-        <Image Source="username.png" Margin="253,162,75,260"/>
+        <Image Source="/UI/username.png" Margin="253,162,75,260"/>
 
         <PasswordBox x:Name="pwbPassword" HorizontalAlignment="Left" Margin="75,225,0,0" VerticalAlignment="Top" Width="178" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" Password="Hurensohn" SelectionOpacity="1"/>
         <Border Background="White" Margin="75,243,75,206"/>
-        <Image Source="password.png" Margin="253,215,74,204"/>
+        <Image Source="/UI/password.png" Margin="253,215,74,204"/>
 
         <Border x:Name="brdLogin" CornerRadius="10" Margin="125,330,125,100" BorderBrush="White" BorderThickness="2">
           <Label Content="Login" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,0,0,0" Foreground="White" Margin="0,-2,0,0"/>

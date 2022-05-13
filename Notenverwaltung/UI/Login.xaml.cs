@@ -39,6 +39,21 @@ namespace Notenverwaltung
 
     private void BrdLogin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
+      UserLogin();
+    }
+
+
+    private void Window_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (e.Key == Key.Enter)
+      {
+        UserLogin();
+      }
+    }
+
+
+    private void UserLogin()
+    {
       try
       {
         User u = new User(tbxUsername.Text.ToLower());

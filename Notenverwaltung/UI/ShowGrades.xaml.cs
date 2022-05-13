@@ -28,5 +28,44 @@ namespace Notenverwaltung
       InitializeComponent();
       CurrUser = curr;
     }
+
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+      FillListBox();
+    }
+
+
+    private void FillListBox()
+    {
+      FillSubjects();
+      FillGrades();
+    }
+
+
+    private void FillSubjects()
+    {
+      cbxSubjects.Items.Clear();
+      List<Subject> subjects = Subject.ReadAll();
+
+      foreach (Subject s in subjects) cbxSubjects.Items.Add(s);
+    }
+
+
+    private void FillGrades()
+    {
+      lbxGrades.Items.Clear();
+      List<Grade> grades = Grade.ReadAll(CurrUser.Username);
+
+      foreach(Grade g in grades)
+        if (cbxSubjects.SelectedItem != null && g.Subject.Id == (cbxSubjects.SelectedItem as Grade).Id)
+          lbxGrades.Items.Add(g);
+    }
+
+    
+    private void cbxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+      FillGrades();
+    }
   }
 }
