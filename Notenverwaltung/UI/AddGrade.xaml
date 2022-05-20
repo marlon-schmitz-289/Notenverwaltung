@@ -32,11 +32,11 @@
           <ComboBox x:Name="cbxType" Foreground="Black" Style="{DynamicResource CCBS}" Template="{DynamicResource ComboBoxTemplate}"/>
         </Border>
 
-        <Border x:Name="brdClear" Margin="10,310,450,0" CornerRadius="20"  BorderBrush="White" BorderThickness="2" Height="30" VerticalAlignment="Top">
+        <Border x:Name="brdClear" Margin="10,310,450,0" CornerRadius="10"  BorderBrush="White" BorderThickness="2" Height="30" VerticalAlignment="Top">
           <Label Content="Zurücksetzen" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Padding="0,0,0,0"/>
         </Border>
 
-        <Border x:Name="brdDone" Margin="450,310,10,0" CornerRadius="20"  BorderBrush="White" BorderThickness="2" Height="30" VerticalAlignment="Top">
+        <Border x:Name="brdDone" Margin="450,310,10,0" CornerRadius="10"  BorderBrush="White" BorderThickness="2" Height="30" VerticalAlignment="Top">
           <Label Content="Speichern" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Padding="0,0,0,0"/>
         </Border>
       </Grid>

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Controls;
+using System.Windows.Threading;
+using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
@@ -11,14 +13,8 @@ namespace Notenverwaltung
   public partial class MainWindow : Window
   {
     private CurrentPage _currPage = CurrentPage.showAll;
+    public List<Grade> grades { get; private set; }
     public User CurrentUser { get; set; }
-#if DEBUG
-    public String User
-    {
-      get => lblUserName.Content.ToString();
-      set => lblUserName.Content = value;
-    }
-#endif
 
     public MainWindow()
     {
@@ -36,28 +32,18 @@ namespace Notenverwaltung
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-#if DEBUG
-      CurrentUser = new User("admin");
-      User = CurrentUser.Username;
-#elif RELEASE
-      CurrentUser = new User();
+      CurrentUser = new();
       this.IsEnabled = false;
-      Login loginDlg = new Login(CurrentUser);
+      Login loginDlg = new(CurrentUser);
       loginDlg.Owner = this;
       loginDlg.ShowDialog();
 
-      try
-      {
-        MessageDialog dlg = new MessageDialog($"Willkommen {CurrentUser.Username}");
-        dlg.Owner = this;
-        dlg.ShowDialog();
-        this.IsEnabled = true;
-      }
-      catch
-      {
+      grades = Grade.ReadAll(CurrentUser.Username);
 
-      }
-#endif
+      MessageDialog dlg = new($"Willkommen {CurrentUser.Username}");
+      dlg.Owner = this;
+      dlg.ShowDialog();
+      this.IsEnabled = true;
 
       brdSchliessen.MouseLeftButtonDown += (sender, e) => Application.Current.Shutdown();
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
@@ -72,7 +58,7 @@ namespace Notenverwaltung
           this.frame.Content = new ShowGrades(CurrentUser);
           break;
         case CurrentPage.showAvgs:
-          this.frame.Content = new Label() { Content = "Durchschnitte anzeigen" };
+          this.frame.Content = new ShowAverages(CurrentUser);
           break;
         case CurrentPage.newEntry:
           this.frame.Content = new AddGrade(CurrentUser);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,18 +16,17 @@ using System.Windows.Shapes;
 
 namespace Notenverwaltung
 {
-  /// <summary>
-  /// Interaction logic for ShowGrades.xaml
-  /// </summary>
   public partial class ShowGrades : Page
   {
     public User CurrUser { get; set; }
+    public List<Grade> Grades { get; set; }
 
-    
+
     public ShowGrades(User curr)
     {
       InitializeComponent();
       CurrUser = curr;
+      Grades = Grade.ReadAll(curr.Username);
     }
 
 
@@ -55,11 +55,16 @@ namespace Notenverwaltung
     private void FillGrades()
     {
       lbxGrades.Items.Clear();
-      List<Grade> grades = Grade.ReadAll(CurrUser.Username);
 
-      foreach(Grade g in grades)
-        if (cbxSubjects.SelectedItem != null && g.Subject.Id == (cbxSubjects.SelectedItem as Grade).Id)
-          lbxGrades.Items.Add(g);
+      if (cbxSubjects.SelectedItem != null)
+      {
+        Subject s = cbxSubjects.SelectedItem as Subject;
+
+
+        foreach (Grade g in Grades)
+          if (g.Subject.Id == s.Id)
+            lbxGrades.Items.Add(g);
+      }
     }
 
     

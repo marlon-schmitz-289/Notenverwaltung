@@ -68,7 +68,8 @@ namespace Notenverwaltung
       }
       catch (Exception)
       {
-        MessageBox.Show("Falsche Login-Daten!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageDialog dlg = new("Falsche Login-Daten!") { Owner = this};
+        dlg.ShowDialog();
       }
     }
   }

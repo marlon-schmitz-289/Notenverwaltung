@@ -58,32 +58,6 @@ namespace Notenverwaltung
     public void Delete() => DBNote.Delete(this);
     public void Update() => DBNote.Update(this);
     public void Save() => DBNote.Save(this);
-
-
-    public static double CalculateAverage(List<Grade> grades, Subject sub)
-    {
-      double average = 0;
-      int count = 0;
-
-      foreach (Grade grade in grades)
-      {
-        if (grade.Subject.Equals(sub))
-        {
-          if (grade.TypeG == Type.schulaufgabe)
-          {
-            average += grade.Rating * 2;
-            count += 2;
-          }
-          else if (grade.TypeG == Type.muendlich)
-          {
-            average += grade.Rating;
-            count++;
-          }
-        }
-      }
-
-      return average / count;
-    }
     #endregion
   }
 }

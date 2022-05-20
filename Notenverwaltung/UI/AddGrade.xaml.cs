@@ -27,7 +27,7 @@ namespace Notenverwaltung
 
     private void DoneButton(object sender, MouseButtonEventArgs e)
     {
-      Grade g = new Grade();
+      Grade g = new();
       try
       {
         g.Subject = cbxSubject.SelectedItem as Subject;
@@ -35,17 +35,19 @@ namespace Notenverwaltung
         g.TypeG = (Type)cbxType.SelectedItem;
         g.User = CurUser;
         g.Save();
+
+        ClearComboBoxes();
+        MessageDialog md = new("Note erfolgreich gespeichert") { Owner = Application.Current.MainWindow };
+        md.ShowDialog();
       }
       catch(InvalidOperationException)
       {
-        MessageDialog dlg = new MessageDialog("Beim Speichern ist ein Fehler Aufgetreten!");
-        dlg.Owner = Application.Current.MainWindow;
+        MessageDialog dlg = new MessageDialog("Beim Speichern ist ein Fehler Aufgetreten!") { Owner = Application.Current.MainWindow };
         dlg.ShowDialog();
       }
       catch(Exception)
       {
-        MessageDialog dlg = new MessageDialog("Ein Fehler im Programm ist aufgetreten!");
-        dlg.Owner = Application.Current.MainWindow;
+        MessageDialog dlg = new MessageDialog("Ein Fehler im Programm ist aufgetreten!") { Owner = Application.Current.MainWindow };
         dlg.ShowDialog();
       }
     }

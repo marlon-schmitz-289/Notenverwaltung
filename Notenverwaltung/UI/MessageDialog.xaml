@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notenverwaltung"
         mc:Ignorable="d" WindowStyle="None" Background="{x:Null}" ResizeMode="NoResize"
-        AllowsTransparency="True" Title="MessageDialog" Height="150" Width="250">
+        AllowsTransparency="True" Title="MessageDialog" Height="150" Width="250" KeyDown="Window_KeyDown">
   <Grid>
     <Border CornerRadius="5">
       <Border.Background>

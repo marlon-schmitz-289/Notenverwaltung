@@ -18,7 +18,7 @@ namespace Notenverwaltung
     #region All
     public static List<Grade> ReadAll(String un)
     {
-      List<Grade> lst = new List<Grade>();
+      List<Grade> lst = new();
       String sql;
 
       if (un.Equals("admin")) sql = $"SELECT * FROM note";
