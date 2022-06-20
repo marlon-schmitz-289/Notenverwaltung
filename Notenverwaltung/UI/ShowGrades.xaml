@@ -14,7 +14,7 @@
       </Border>
 
       <Border CornerRadius="5" Background="#AD000000" Margin="0,40,0,0">
-        <ListBox x:Name="lbxGrades" Style="{DynamicResource LBS}" Background="Transparent"/>
+        <ListBox x:Name="lbxGrades" Style="{DynamicResource LBS}" Background="White" Foreground="Black" BorderBrush="Black"/>
       </Border>
     </Grid>
   </Border>

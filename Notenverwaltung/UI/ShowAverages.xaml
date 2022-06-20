@@ -9,7 +9,7 @@
       Title="ShowAverages">
   <Border CornerRadius="5" Background="#192B66DC">
     <Grid Margin="10,10,10,10">
-      <ListBox Style="{DynamicResource LBS}" />
+      <ListBox Style="{DynamicResource LBS}" Background="White" BorderBrush="Black" Foreground="Black" />
     </Grid>
   </Border>
 </Page>

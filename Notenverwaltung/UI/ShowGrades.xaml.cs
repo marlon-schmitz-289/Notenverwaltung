@@ -22,11 +22,11 @@ namespace Notenverwaltung
     public List<Grade> Grades { get; set; }
 
 
-    public ShowGrades(User curr)
+    public ShowGrades(User curr, List<Grade> grades)
     {
       InitializeComponent();
       CurrUser = curr;
-      Grades = Grade.ReadAll(curr.Username);
+      Grades = grades;
     }
 
 

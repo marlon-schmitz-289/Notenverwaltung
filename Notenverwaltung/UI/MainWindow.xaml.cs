@@ -1,25 +1,30 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Controls;
-using System.Windows.Threading;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Notenverwaltung
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
   public partial class MainWindow : Window
   {
     private CurrentPage _currPage = CurrentPage.showAll;
-    public List<Grade> grades { get; private set; }
+    private Thread _threadRead;
+    public List<Grade> Grades { get; private set; }
     public User CurrentUser { get; set; }
 
     public MainWindow()
     {
       InitializeComponent();
       WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+      _threadRead = new(() =>
+      {
+        Grades = Grade.ReadAll(CurrentUser.Username);
+        Thread.Sleep(60000);
+      });
     }
 
 
@@ -38,7 +43,7 @@ namespace Notenverwaltung
       loginDlg.Owner = this;
       loginDlg.ShowDialog();
 
-      grades = Grade.ReadAll(CurrentUser.Username);
+      _threadRead.Start();
 
       MessageDialog dlg = new($"Willkommen {CurrentUser.Username}");
       dlg.Owner = this;
@@ -55,7 +60,7 @@ namespace Notenverwaltung
       switch (_currPage)
       {
         case CurrentPage.showAll:
-          this.frame.Content = new ShowGrades(CurrentUser);
+          this.frame.Content = new ShowGrades(CurrentUser, Grades);
           break;
         case CurrentPage.showAvgs:
           this.frame.Content = new ShowAverages(CurrentUser);
@@ -93,8 +98,17 @@ namespace Notenverwaltung
 
     private void brdListAll_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-      _currPage = CurrentPage.showAll;
-      SwitchPage();
+      if (Grades != null)
+      {
+        _currPage = CurrentPage.showAll;
+        SwitchPage();
+      }
+      else
+      {
+        MessageDialog dlg = new("Bitte warten, bis die Daten geladen wurden");
+        dlg.Owner = this;
+        dlg.ShowDialog();
+      }
     }
   }
 }

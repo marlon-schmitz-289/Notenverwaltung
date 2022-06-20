@@ -7,8 +7,8 @@
   <Application.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="./UI/ComboBox.xaml" />
-        <ResourceDictionary Source="./UI/ListBox.xaml" />
+        <ResourceDictionary Source="./UI/Dictionaries/ComboBox.xaml" />
+        <ResourceDictionary Source="./UI/Dictionaries/ListBox.xaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>

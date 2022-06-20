@@ -9,7 +9,7 @@ namespace Notenverwaltung
   public class User
   {
     public String Username { get; set; }
-    public string Password { get; set; }
+    public String Password { get; set; }
 
 
     public User()
@@ -34,7 +34,7 @@ namespace Notenverwaltung
     }
 
 
-    public User Read(String un) => DBUser.Read(un);
+    public static User Read(String un) => DBUser.Read(un);
     public static List<User> ReadAll() => DBUser.ReadAll();
     public override string ToString() => $"{Username} | {Password}";
   }
