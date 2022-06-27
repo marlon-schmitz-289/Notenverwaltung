@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:Notenverwaltung"
       mc:Ignorable="d" Background="Transparent"
       d:DesignHeight="350" d:DesignWidth="560"
-      Title="ShowAverages">
+      Title="ShowAverages" Loaded="Page_Loaded">
   <Border CornerRadius="5" Background="#192B66DC">
     <Grid Margin="10,10,10,10">
-      <ListBox Style="{DynamicResource LBS}" Background="White" BorderBrush="Black" Foreground="Black" />
+      <ListBox x:Name="lbxAvgs" Style="{DynamicResource LBS}" Background="White" BorderBrush="Black" Foreground="Black" />
     </Grid>
   </Border>
 </Page>

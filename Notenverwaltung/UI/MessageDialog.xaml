@@ -16,7 +16,7 @@
       </Border.Background>
       <Grid>
         <Border CornerRadius="5" Background="#55000000" BorderThickness="2" BorderBrush="White" Margin="10,10,10,0" Height="100" VerticalAlignment="Top">
-          <TextBlock x:Name="tbxText" Padding="2,2,2,2" Foreground="White"/>
+          <TextBlock x:Name="tbxText" Padding="2,2,2,2" Foreground="White" TextWrapping="Wrap"/>
         </Border>
 
         <Border x:Name="brdOK" CornerRadius="5" Background="Transparent" BorderBrush="White" BorderThickness="2" Margin="0,0,0,5" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="50">

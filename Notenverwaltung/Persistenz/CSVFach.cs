@@ -1,40 +1,47 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.IO;
 
 namespace Notenverwaltung
 {
   public class CSVFach
   {
-    private static readonly String PATH = "fach.csv";
+    private static readonly String PATH = $@".\..\..\..\..\Persistenz\Savefiles\fach.csv";
 
-    public static Subject Read(String name)
+
+    public static void Read(String name, Subject s, List<Subject> lst)
     {
-      foreach (var s in ReadAll())
+      foreach (var su in lst)
       {
-        if (s.Name.Equals(name))
-          return s;
+        if (s.Name.Equals(name)) s = su;
       }
-      return new();
     }
 
 
     public static List<Subject> ReadAll()
     {
       var lst = new List<Subject>();
-      
+
       if (File.Exists(PATH))
       {
-        String[] lines = File.ReadAllLines(PATH);
+        List<String> lines = new();
+        StreamReader sr = new(PATH, new FileStreamOptions() { Access = FileAccess.Write });
+
+        while (!sr.EndOfStream)
+          lines.Add(sr.ReadLine());
+
+        sr.Close();
+
         foreach (var line in lines)
-        {
-          var parts = line.Split(';');
-          lst.Add(new Subject(Int32.Parse(parts[0]), parts[1]));
-        }
+          lst.Add(new Subject(line));
+
+        lines = null;
       }
+      else
+        throw new Exception("File could not be found!");
       
       return lst;
     }

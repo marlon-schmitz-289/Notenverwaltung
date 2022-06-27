@@ -9,12 +9,24 @@ namespace Notenverwaltung
 {
   public partial class ShowAverages : Page
   {
-    public User CurrUser { get; set; }
+    private List<Grade> Grades { get; set; }
+
     
-    public ShowAverages(User curr)
+    public ShowAverages(List<Grade> grades)
     {
       InitializeComponent();
-      CurrUser = curr;
+      Grades = grades;
+    }
+
+    
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+      foreach(Subject s in Subject.ReadAll())
+      {
+        lbxAvgs.Items.Add(new Label() {
+          Content = $"{s.Name}: {s.CalculateAverage(Grades)}",
+        });
+      }
     }
   }
 }

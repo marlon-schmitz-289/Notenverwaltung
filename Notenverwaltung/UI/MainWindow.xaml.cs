@@ -11,20 +11,12 @@ namespace Notenverwaltung
   public partial class MainWindow : Window
   {
     private CurrentPage _currPage = CurrentPage.showAll;
-    private Thread _threadRead;
-    public List<Grade> Grades { get; private set; }
-    public User CurrentUser { get; set; }
+    public List<Grade> Grades { get; private set; } = new();
 
     public MainWindow()
     {
       InitializeComponent();
       WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-      _threadRead = new(() =>
-      {
-        Grades = Grade.ReadAll(CurrentUser.Username);
-        Thread.Sleep(60000);
-      });
     }
 
 
@@ -37,21 +29,13 @@ namespace Notenverwaltung
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-      CurrentUser = new();
-      this.IsEnabled = false;
-      Login loginDlg = new(CurrentUser);
-      loginDlg.Owner = this;
-      loginDlg.ShowDialog();
-
-      _threadRead.Start();
-
-      MessageDialog dlg = new($"Willkommen {CurrentUser.Username}");
-      dlg.Owner = this;
-      dlg.ShowDialog();
-      this.IsEnabled = true;
-
       brdSchliessen.MouseLeftButtonDown += (sender, e) => Application.Current.Shutdown();
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
+
+#if DEBUG
+      MessageDialog dlg = new("<neuer Debugtext>", this);
+      dlg.ShowDialog();
+#endif
     }
 
 
@@ -60,16 +44,16 @@ namespace Notenverwaltung
       switch (_currPage)
       {
         case CurrentPage.showAll:
-          this.frame.Content = new ShowGrades(CurrentUser, Grades);
+          this.frame.Content = new ShowGrades(Grades);
           break;
         case CurrentPage.showAvgs:
-          this.frame.Content = new ShowAverages(CurrentUser);
+          this.frame.Content = new ShowAverages(Grades);
           break;
         case CurrentPage.newEntry:
-          this.frame.Content = new AddGrade(CurrentUser);
+          this.frame.Content = new AddGrade();
           break;
         case CurrentPage.editEntry:
-          this.frame.Content = new Label() { Content = "Aktuell ausgewählten bearbeiten" };
+          this.frame.Content = new Label() { Content = "<Liste mit Einträgen>\nAktuell ausgewählten Eintrag bearbeiten" };
           break;
       }
     }
@@ -105,8 +89,7 @@ namespace Notenverwaltung
       }
       else
       {
-        MessageDialog dlg = new("Bitte warten, bis die Daten geladen wurden");
-        dlg.Owner = this;
+        MessageDialog dlg = new("Bitte warten, bis die Daten geladen wurden", this);
         dlg.ShowDialog();
       }
     }

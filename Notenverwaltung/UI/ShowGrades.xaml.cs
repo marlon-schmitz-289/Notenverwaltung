@@ -18,14 +18,12 @@ namespace Notenverwaltung
 {
   public partial class ShowGrades : Page
   {
-    public User CurrUser { get; set; }
     public List<Grade> Grades { get; set; }
 
 
-    public ShowGrades(User curr, List<Grade> grades)
+    public ShowGrades(List<Grade> grades)
     {
       InitializeComponent();
-      CurrUser = curr;
       Grades = grades;
     }
 
@@ -62,13 +60,13 @@ namespace Notenverwaltung
 
 
         foreach (Grade g in Grades)
-          if (g.Subject.Id == s.Id)
+          if (g.Subject == s)
             lbxGrades.Items.Add(g);
       }
     }
 
     
-    private void cbxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void CbxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       FillGrades();
     }

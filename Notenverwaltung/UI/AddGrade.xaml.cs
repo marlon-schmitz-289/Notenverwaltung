@@ -10,12 +10,9 @@ namespace Notenverwaltung
   /// </summary>
   public partial class AddGrade : Page
   {
-    public User CurUser { get; set; }
-
-    public AddGrade(User u)
+    public AddGrade()
     {
       InitializeComponent();
-      CurUser = u;
 
       brdClear.MouseLeftButtonDown += (sender, e) => ClearComboBoxes();
       brdDone.MouseLeftButtonDown += DoneButton;
@@ -33,21 +30,20 @@ namespace Notenverwaltung
         g.Subject = cbxSubject.SelectedItem as Subject;
         g.Rating = Int32.Parse((cbxRating.SelectedItem as ComboBoxItem).Content.ToString());
         g.TypeG = (Type)cbxType.SelectedItem;
-        g.User = CurUser;
         g.Save();
 
         ClearComboBoxes();
-        MessageDialog md = new("Note erfolgreich gespeichert") { Owner = Application.Current.MainWindow };
+        MessageDialog md = new("Note erfolgreich gespeichert", Application.Current.MainWindow);
         md.ShowDialog();
       }
       catch(InvalidOperationException)
       {
-        MessageDialog dlg = new MessageDialog("Beim Speichern ist ein Fehler Aufgetreten!") { Owner = Application.Current.MainWindow };
+        MessageDialog dlg = new MessageDialog("Beim Speichern ist ein Fehler Aufgetreten!", Application.Current.MainWindow);
         dlg.ShowDialog();
       }
       catch(Exception)
       {
-        MessageDialog dlg = new MessageDialog("Ein Fehler im Programm ist aufgetreten!") { Owner = Application.Current.MainWindow };
+        MessageDialog dlg = new MessageDialog("Ein Fehler im Programm ist aufgetreten!", Application.Current.MainWindow);
         dlg.ShowDialog();
       }
     }

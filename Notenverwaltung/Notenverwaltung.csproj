@@ -7,16 +7,21 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <StartupObject>Notenverwaltung.App</StartupObject>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Datenverarbeitung\**" />
+    <EmbeddedResource Remove="Datenverarbeitung\**" />
+    <None Remove="Datenverarbeitung\**" />
+    <Page Remove="Datenverarbeitung\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="UI\noten.png" />
     <None Remove="UI\password.png" />
     <None Remove="UI\username.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Datenverarbeitung\" />
   </ItemGroup>
 
   <ItemGroup>
