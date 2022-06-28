@@ -9,7 +9,7 @@ namespace Notenverwaltung
 {
   public class CSVFach
   {
-    private static readonly String PATH = $@".\..\..\..\..\Persistenz\Savefiles\fach.csv";
+    private static String PATH = $@".\..\..\..\..\Persistenz\Savefiles\fach.csv";
 
 
     public static void Read(String name, Subject s, List<Subject> lst)
@@ -28,7 +28,7 @@ namespace Notenverwaltung
       if (File.Exists(PATH))
       {
         List<String> lines = new();
-        StreamReader sr = new(PATH, new FileStreamOptions() { Access = FileAccess.Write });
+        StreamReader sr = new(File.Open(PATH, FileMode.Open));
 
         while (!sr.EndOfStream)
           lines.Add(sr.ReadLine());

@@ -9,8 +9,8 @@ namespace Notenverwaltung
 {
   public static class CSVNote
   {
-    private static readonly String PATH_GRADES = $@".\..\..\..\..\Persistenz\Savefiles\noten.csv";
-    private static readonly String PATH_LAST_ID = $@".\..\..\..\..\Persistenz\Savefiles\last.txt";
+    private static String PATH_GRADES = $@".\..\..\..\..\Persistenz\Savefiles\noten.csv";
+    private static String PATH_LAST_ID = $@".\..\..\..\..\Persistenz\Savefiles\last.txt";
 
 
     public static Grade Read(int id)
