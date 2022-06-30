@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
@@ -11,15 +10,6 @@ namespace Notenverwaltung
 
     #region Constructors
     /// <summary>
-    /// Liest Fach mit übergebenem Namen ein.
-    /// </summary>
-    public Subject (String name)
-    {
-      Read(name, ReadAll());
-    }
-
-
-    /// <summary>
     /// Erstellt neues Objekt mit Übergebenem Namen wenn newSub true, liest andernfalls Fach mit Namen name ein.
     /// </summary>
     public Subject(String name, bool newSub)
@@ -27,7 +17,7 @@ namespace Notenverwaltung
       if (newSub)
         Name = name;
       else
-        Read(name, ReadAll());
+        Read(name);
     }
     #endregion
 
@@ -43,19 +33,21 @@ namespace Notenverwaltung
     /// <summary>
     /// Liest Fach mit übergebenem Namen ein
     /// </summary>
-    public void Read(String name, List<Subject> lst) => CSVFach.Read(name, this, lst);
+    public void Read(String name) => CSVSubject.Read(name);
     /// <summary>
     /// Liest alle Fächer ein
     /// </summary>
     /// <returns>Liste mit allen Fächern
     /// </returns>
-    public static List<Subject> ReadAll() => CSVFach.ReadAll();
-    
-    
+    public static void ReadAll() => CSVSubject.ReadAll();
+
+
     public override bool Equals(object obj)
     {
       Subject other = obj as Subject;
-      return this.Name.Equals(other.Name);
+      if (other is not null && other.Name is not null)
+        return this.Name.Equals(other.Name);
+      return false;
     }
 
 
@@ -65,12 +57,12 @@ namespace Notenverwaltung
     }
 
 
-    public double CalculateAverage(List<Grade> grades)
+    public double CalculateAverage()
     {
       double average = 0;
       int count = 0;
 
-      foreach (Grade grade in grades)
+      foreach (Grade grade in CSVGrade.Grades)
       {
         if (grade.Subject.Equals(this))
         {

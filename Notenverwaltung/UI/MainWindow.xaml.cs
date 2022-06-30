@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Threading;
 
 namespace Notenverwaltung
 {
   public partial class MainWindow : Window
   {
     private CurrentPage _currPage = CurrentPage.showAll;
-    public List<Grade> Grades { get; private set; } = new();
 
     public MainWindow()
     {
@@ -33,9 +29,12 @@ namespace Notenverwaltung
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
 
 #if DEBUG
-      MessageDialog dlg = new("<neuer Debugtext>", this);
+      MessageDialog dlg = new($@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\fach.csv", this);
       dlg.ShowDialog();
 #endif
+
+      Subject.ReadAll();
+      Grade.ReadAll();
     }
 
 
@@ -44,10 +43,10 @@ namespace Notenverwaltung
       switch (_currPage)
       {
         case CurrentPage.showAll:
-          this.frame.Content = new ShowGrades(Grades);
+          this.frame.Content = new ShowGrades();
           break;
         case CurrentPage.showAvgs:
-          this.frame.Content = new ShowAverages(Grades);
+          this.frame.Content = new ShowAverages();
           break;
         case CurrentPage.newEntry:
           this.frame.Content = new AddGrade();
@@ -82,7 +81,7 @@ namespace Notenverwaltung
 
     private void brdListAll_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-      if (Grades != null)
+      if (CSVGrade.Grades != null)
       {
         _currPage = CurrentPage.showAll;
         SwitchPage();

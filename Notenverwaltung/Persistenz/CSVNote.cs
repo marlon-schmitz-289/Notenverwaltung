@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Notenverwaltung
 {
-  public static class CSVNote
+  public static class CSVGrade
   {
-    private static String PATH_GRADES = $@".\..\..\..\..\Persistenz\Savefiles\noten.csv";
-    private static String PATH_LAST_ID = $@".\..\..\..\..\Persistenz\Savefiles\last.txt";
+    private static readonly String PATH_GRADES = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\noten.csv";
+    private static readonly String PATH_LAST_ID = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\last.txt";
+
+    public static readonly List<Grade> Grades = new();
 
 
     public static Grade Read(int id)
     {
-      foreach (Grade g in ReadAll())
-      {
+      foreach (Grade g in Grades)
         if (g.Id == id) return g;
-      }
 
       return null;
     }
 
 
-    public static List<Grade> ReadAll()
+    public static void ReadAll()
     {
-      List<Grade> lst = new();
-
       if (File.Exists(PATH_GRADES))
       {
         List<String> lines = new();
@@ -43,9 +38,9 @@ namespace Notenverwaltung
           var parts = line.Split(';');
 
           // Possibility 1:
-          lst.Add(new Grade(
+          Grades.Add(new Grade(
             Int32.Parse(parts[0]),
-            new(parts[1]),
+            new(parts[1], true),
             Int32.Parse(parts[2]),
             (Type)Int32.Parse(parts[3]))
           );
@@ -57,48 +52,39 @@ namespace Notenverwaltung
           //  Rating = Int32.Parse(parts[2]),
           //  TypeG = (Type)Int32.Parse(parts[3])
           //});
-          
-          parts = null;
         }
-
-        lines = null;
       }
-
-      return lst;
     }
 
 
     public static void Save(Grade g)
     {
-      var lst = ReadAll();
-      if (!lst.Contains(g)) lst.Add(g);
-      SaveAll(lst);
+      if (!Grades.Contains(g)) Grades.Add(g);
+      SaveAll();
       SetLastId(g.Id);
     }
 
 
-    public static void SaveAll(List<Grade> lst)
+    public static void SaveAll()
     {
       StreamWriter sw = new(PATH_GRADES, false);
-      foreach (var g in lst) sw.WriteLine(g.ToSaveableString());
+      foreach (var g in Grades) sw.WriteLine(g.ToSaveableString());
       sw.Close();
     }
 
 
     public static void Update(Grade g)
     {
-      var lst = ReadAll();
       var old = Read(g.Id);
-      if (old != null) lst[lst.IndexOf(old)] = g;
-      SaveAll(lst);
+      if (old != null) Grades[Grades.IndexOf(old)] = g;
+      SaveAll();
     }
 
 
     public static void Delete(Grade g)
     {
-      var lst = ReadAll();
-      if (lst.Contains(g)) lst.Remove(g);
-      SaveAll(lst);
+      if (Grades.Contains(g)) Grades.Remove(g);
+      SaveAll();
     }
 
 

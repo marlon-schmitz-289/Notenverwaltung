@@ -17,7 +17,7 @@ namespace Notenverwaltung
       brdClear.MouseLeftButtonDown += (sender, e) => ClearComboBoxes();
       brdDone.MouseLeftButtonDown += DoneButton;
 
-      cbxSubject.Loaded += (sender, e) => cbxSubject.ItemsSource = Subject.ReadAll();
+      cbxSubject.Loaded += (sender, e) => cbxSubject.ItemsSource = CSVSubject.Subjects;
       cbxType.Loaded += (sender, e) => cbxType.ItemsSource = Enum.GetValues(typeof(Type));
     }
 
@@ -36,14 +36,14 @@ namespace Notenverwaltung
         MessageDialog md = new("Note erfolgreich gespeichert", Application.Current.MainWindow);
         md.ShowDialog();
       }
-      catch(InvalidOperationException)
+      catch (InvalidOperationException)
       {
-        MessageDialog dlg = new MessageDialog("Beim Speichern ist ein Fehler Aufgetreten!", Application.Current.MainWindow);
+        MessageDialog dlg = new("Beim Speichern ist ein Fehler Aufgetreten!", Application.Current.MainWindow);
         dlg.ShowDialog();
       }
-      catch(Exception)
+      catch (Exception)
       {
-        MessageDialog dlg = new MessageDialog("Ein Fehler im Programm ist aufgetreten!", Application.Current.MainWindow);
+        MessageDialog dlg = new("Ein Fehler im Programm ist aufgetreten!", Application.Current.MainWindow);
         dlg.ShowDialog();
       }
     }

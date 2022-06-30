@@ -1,30 +1,27 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Notenverwaltung
 {
-  public class CSVFach
+  public class CSVSubject
   {
-    private static String PATH = $@".\..\..\..\..\Persistenz\Savefiles\fach.csv";
+    private static readonly String PATH = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\fach.csv";
+
+    public static List<Subject> Subjects = new();
 
 
-    public static void Read(String name, Subject s, List<Subject> lst)
+    public static Subject Read(String name)
     {
-      foreach (var su in lst)
-      {
-        if (s.Name.Equals(name)) s = su;
-      }
+      foreach (var s in Subjects)
+        if (s is not null && s.Name is not null && s.Name.Equals(name)) return s;
+
+      return null;
     }
 
 
-    public static List<Subject> ReadAll()
+    public static void ReadAll()
     {
-      var lst = new List<Subject>();
-
       if (File.Exists(PATH))
       {
         List<String> lines = new();
@@ -36,14 +33,10 @@ namespace Notenverwaltung
         sr.Close();
 
         foreach (var line in lines)
-          lst.Add(new Subject(line));
-
-        lines = null;
+          Subjects.Add(new Subject(line, true));
       }
       else
         throw new Exception("File could not be found!");
-      
-      return lst;
     }
   }
 }

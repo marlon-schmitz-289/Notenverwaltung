@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
@@ -50,11 +49,11 @@ namespace Notenverwaltung
     public String ToSaveableString() => $"{Id};{Subject.Name};{Rating};{(Int32)TypeG}";
     public String[] ToStringArray() { return new string[] { this.Id.ToString(), this.Subject.Name, this.Rating.ToString(), ((Int32)this.TypeG).ToString() }; }
     public override string ToString() => $"{this.Subject} | {Rating} | {TypeG,-15}";
-    public static List<Grade> ReadAll() => CSVNote.ReadAll();
-    public Grade Read(int id) => CSVNote.Read(id);
-    public void Delete() => CSVNote.Delete(this);
-    public void Update() => CSVNote.Update(this);
-    public void Save() => CSVNote.Save(this);
+    public static void ReadAll() => CSVGrade.ReadAll();
+    public Grade Read(int id) => CSVGrade.Read(id);
+    public void Delete() => CSVGrade.Delete(this);
+    public void Update() => CSVGrade.Update(this);
+    public void Save() => CSVGrade.Save(this);
     #endregion
   }
 }
