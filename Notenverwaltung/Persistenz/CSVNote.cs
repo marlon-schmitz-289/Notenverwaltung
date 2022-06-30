@@ -9,7 +9,7 @@ namespace Notenverwaltung
     private static readonly String PATH_GRADES = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\noten.csv";
     private static readonly String PATH_LAST_ID = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\last.txt";
 
-    public static readonly List<Grade> Grades = new();
+    public static List<Grade> Grades = new();
 
 
     public static Grade Read(int id)
@@ -25,6 +25,7 @@ namespace Notenverwaltung
     {
       if (File.Exists(PATH_GRADES))
       {
+        Grades = new();
         List<String> lines = new();
         StreamReader sr = new(PATH_GRADES);
 
@@ -76,7 +77,7 @@ namespace Notenverwaltung
     public static void Update(Grade g)
     {
       var old = Read(g.Id);
-      if (old != null) Grades[Grades.IndexOf(old)] = g;
+      if (old is not null) Grades[Grades.IndexOf(old)] = g;
       SaveAll();
     }
 

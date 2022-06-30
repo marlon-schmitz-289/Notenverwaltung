@@ -52,7 +52,7 @@ namespace Notenverwaltung
           this.frame.Content = new AddGrade();
           break;
         case CurrentPage.editEntry:
-          this.frame.Content = new Label() { Content = "<Liste mit Einträgen>\nAktuell ausgewählten Eintrag bearbeiten" };
+          this.frame.Content = new EditGrades();
           break;
       }
     }
