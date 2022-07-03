@@ -8,4 +8,4 @@
    
 ## Description
 Small project to organize your grades in certain subjects   
-Users are manually added, like the subjects
+Users can add their Subjects via the files
