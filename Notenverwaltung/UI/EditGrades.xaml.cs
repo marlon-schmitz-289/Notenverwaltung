@@ -34,7 +34,7 @@ namespace Notenverwaltung
 
     private Grade GetSelectedValues()
     {
-      Grade tmp = (lbxGrades.SelectedItem as Grade);
+      Grade tmp = lbxGrades.SelectedItem as Grade;
 
       tmp.Subject = lbxSubject.SelectedItem as Subject;
       tmp.Rating = (Int32)lbxRating.SelectedItem;
@@ -52,7 +52,11 @@ namespace Notenverwaltung
         lbxSubject.SelectedItem = tmp.Subject;
         lbxRating.SelectedItem = tmp.Rating;
         lbxType.SelectedItem = tmp.TypeG;
+        return;
       }
+      lbxSubject.SelectedItem = null;
+      lbxRating.SelectedItem = null;
+      lbxType.SelectedItem = null;
     }
 
 
@@ -103,11 +107,14 @@ namespace Notenverwaltung
 
     private void btnSafe_Click(object sender, RoutedEventArgs e)
     {
-      Grade tmp = GetSelectedValues();
-      tmp.Update();
+      if (lbxGrades.SelectedIndex is not -1)
+      {
+        Grade tmp = GetSelectedValues();
+        tmp.Update();
 
-      Grade.ReadAll();
-      FillGrades();
+        Grade.ReadAll();
+        FillGrades();
+      }
     }
 
 

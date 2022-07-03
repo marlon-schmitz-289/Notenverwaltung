@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         AllowsTransparency="True" Background="Transparent"
-        WindowStyle="None" ResizeMode="NoResize" Foreground="{x:Null}" Loaded="Window_Loaded">
+        WindowStyle="None" ResizeMode="NoResize" Foreground="{x:Null}" Loaded="Window_Loaded" Closing="Window_Closing">
   <Grid>
     <Border CornerRadius="10" MouseDown="Border_MouseDown">
       <Border.Background>

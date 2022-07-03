@@ -14,6 +14,7 @@ namespace Notenverwaltung
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
       FillListBox();
+      cbxSubjects.SelectedIndex = 0;
     }
 
 

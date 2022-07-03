@@ -46,15 +46,12 @@ namespace Notenverwaltung
     {
       Subject other = obj as Subject;
       if (other is not null && other.Name is not null)
-        return this.Name.Equals(other.Name);
+        return Name.Equals(other.Name);
       return false;
     }
 
 
-    public override int GetHashCode()
-    {
-      return base.GetHashCode();
-    }
+    public override int GetHashCode() => base.GetHashCode();
 
 
     public double CalculateAverage()
@@ -79,7 +76,7 @@ namespace Notenverwaltung
         }
       }
 
-      return average / (double)count;
+      return Math.Round(average / count, 2);
     }
     #endregion
   }

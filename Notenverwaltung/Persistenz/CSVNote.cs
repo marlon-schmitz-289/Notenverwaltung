@@ -39,20 +39,23 @@ namespace Notenverwaltung
           var parts = line.Split(';');
 
           // Possibility 1:
-          Grades.Add(new Grade(
-            Int32.Parse(parts[0]),
-            new(parts[1], true),
-            Int32.Parse(parts[2]),
-            (Type)Int32.Parse(parts[3]))
-          );
+          //Grades.Add(new Grade(
+          //  Int32.Parse(parts[0]),
+          //  new(parts[1], false),
+          //  Int32.Parse(parts[2]),
+          //  (Type)Int32.Parse(parts[3])),
+          //  DateTime.Parse(parts[4])
+          //);
 
           // Possibility 2:
-          //lst.Add(new Grade() {
-          //  Id = Int32.Parse(parts[0]), 
-          //  Subject = new(parts[1]),
-          //  Rating = Int32.Parse(parts[2]),
-          //  TypeG = (Type)Int32.Parse(parts[3])
-          //});
+          Grades.Add(new Grade()
+          {
+            Id = Int32.Parse(parts[0]),
+            Subject = new(parts[1], true),
+            Rating = Int32.Parse(parts[2]),
+            TypeG = (Type)Int32.Parse(parts[3]),
+            Creation = DateTime.Parse(parts[4])
+          });
         }
       }
     }

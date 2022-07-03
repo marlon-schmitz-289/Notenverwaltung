@@ -29,7 +29,7 @@ namespace Notenverwaltung
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
 
 #if DEBUG
-      MessageDialog dlg = new($@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\fach.csv", this);
+      MessageDialog dlg = new(text:$@"Test", owner:this);
       dlg.ShowDialog();
 #endif
 
@@ -88,9 +88,15 @@ namespace Notenverwaltung
       }
       else
       {
-        MessageDialog dlg = new("Bitte warten, bis die Daten geladen wurden", this);
+        MessageDialog dlg = new(text:"Bitte warten, bis die Daten geladen wurden", owner:this);
         dlg.ShowDialog();
       }
+    }
+
+
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+      Grade.SaveAll();
     }
   }
 }
