@@ -9,7 +9,7 @@
       Title="ShowAverages" Loaded="Page_Loaded">
   <Border CornerRadius="5" Background="#192B66DC">
     <Grid Margin="10,10,10,10">
-      <ListBox x:Name="lbxAvgs" Style="{DynamicResource LBS}" Background="White" BorderBrush="Black" Foreground="Black" />
+      <ListBox x:Name="lbxAvgs" Style="{DynamicResource LBS}" Background="White" BorderBrush="Black" Foreground="Black" FontFamily="72 Monospace" />
     </Grid>
   </Border>
 </Page>

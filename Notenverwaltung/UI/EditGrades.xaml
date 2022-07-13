@@ -9,19 +9,19 @@
       d:DesignHeight="350" d:DesignWidth="560">
   <Border CornerRadius="5" Background="#192B66DC">
     <Grid>
-      <ComboBox x:Name="lbxGrades" SelectionChanged="lbxGrades_SelectionChanged" Style="{StaticResource CCBS}" Margin="10,10,0,0" Background="White" HorizontalAlignment="Left" Width="350" Height="100" VerticalAlignment="Top"/>
-      <Border x:Name="btnSafe" Background="White" CornerRadius="10" Margin="365,10,0,0" MouseLeftButtonDown="btnSafe_Click" HorizontalAlignment="Left" Width="185" Height="100" VerticalAlignment="Top">
-        <Label Content="Speichern" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="36"/>
+      <ComboBox x:Name="lbxGrades" SelectionChanged="lbxGrades_SelectionChanged" Style="{StaticResource CCBS}" Margin="10,10,0,0" Background="White" HorizontalAlignment="Left" Width="350" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
+      <Border x:Name="btnSafe" Background="Transparent" BorderBrush="White" BorderThickness="5" CornerRadius="10" Margin="365,10,0,0" MouseLeftButtonDown="btnSafe_Click" HorizontalAlignment="Left" Width="185" Height="50" VerticalAlignment="Top">
+        <Label Content="Speichern" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
       </Border>
 
-      <Label Content="Fach:" Margin="10,180,0,0" FontSize="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="170" Height="50" VerticalAlignment="Top"/>
-      <ComboBox x:Name="lbxSubject" Style="{StaticResource CCBS}" Margin="185,180,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top" Background="White" />
+      <Label Content="Fach:" Margin="10,146,0,0" FontSize="13" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="100" Height="30" VerticalAlignment="Top"/>
+      <ComboBox x:Name="lbxSubject" Style="{StaticResource CCBS}" Margin="115,150,0,0" HorizontalAlignment="Left" Width="435" Height="25" VerticalAlignment="Top" Background="White" />
 
-      <Label Content="Bewertung:" Margin="10,235,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170"/>
-      <ComboBox x:Name="lbxRating" Style="{StaticResource CCBS}" Margin="185,235,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top" Background="White" />
+      <Label Content="Bewertung:" Margin="10,196,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+      <ComboBox x:Name="lbxRating" Style="{StaticResource CCBS}" Margin="115,200,0,0" HorizontalAlignment="Left" Width="435" Height="25" VerticalAlignment="Top" Background="White" />
 
-      <Label Content="Art:" Margin="10,290,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="24" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170"/>
-      <ComboBox x:Name="lbxType" Style="{StaticResource CCBS}" Margin="185,290,0,0" HorizontalAlignment="Left" Width="365" Height="50" VerticalAlignment="Top" Background="White" />
+      <Label Content="Art:" Margin="10,246,0,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="13" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+      <ComboBox x:Name="lbxType" Style="{StaticResource CCBS}" Margin="115,250,0,0" HorizontalAlignment="Left" Width="435" Height="25" VerticalAlignment="Top" Background="White" />
 
     </Grid>
   </Border>

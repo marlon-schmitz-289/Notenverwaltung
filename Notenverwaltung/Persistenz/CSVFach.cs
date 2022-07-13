@@ -6,7 +6,7 @@ namespace Notenverwaltung
 {
   public class CSVSubject
   {
-    private static readonly String PATH = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\fach.csv";
+    private static readonly String PATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\fach.csv";
 
     public static List<Subject> Subjects = new();
 

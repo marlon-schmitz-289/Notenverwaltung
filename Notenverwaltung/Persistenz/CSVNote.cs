@@ -6,8 +6,8 @@ namespace Notenverwaltung
 {
   public static class CSVGrade
   {
-    private static readonly String PATH_GRADES = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\noten.csv";
-    private static readonly String PATH_LAST_ID = $@"{Environment.CurrentDirectory}\..\..\..\..\Persistenz\Savefiles\last.txt";
+    private static readonly String PATH_GRADES = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\noten.csv";
+    private static readonly String PATH_LAST_ID = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\last.txt";
 
     public static List<Grade> Grades = new();
 
@@ -58,6 +58,10 @@ namespace Notenverwaltung
           });
         }
       }
+      else
+      {
+        File.Create(PATH_GRADES);
+      }
     }
 
 
@@ -77,10 +81,10 @@ namespace Notenverwaltung
     }
 
 
-    public static void Update(Grade g)
+    public static void Update(Grade @new)
     {
-      var old = Read(g.Id);
-      if (old is not null) Grades[Grades.IndexOf(old)] = g;
+      var old = Read(@new.Id);
+      if (old is not null) Grades[Grades.IndexOf(old)] = @new;
       SaveAll();
     }
 

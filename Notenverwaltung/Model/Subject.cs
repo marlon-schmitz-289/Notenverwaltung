@@ -2,9 +2,15 @@
 
 namespace Notenverwaltung
 {
+  /// <summary>
+  /// Einzelnes Fach mit Attribut Name und speziellen Funktionen
+  /// </summary>
   public class Subject
   {
     #region Fields
+    /// <summary>
+    /// Name des Faches
+    /// </summary>
     public String Name { get; set; }
     #endregion
 
@@ -29,7 +35,7 @@ namespace Notenverwaltung
     /// <summary>
     /// Konvertiert Objekt zu gut darstellbarem String
     /// </summary>
-    public override string ToString() => $"{Name,-15}";
+    public override string ToString() => $"{Name,-12}";
     /// <summary>
     /// Liest Fach mit übergebenem Namen ein
     /// </summary>

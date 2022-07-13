@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,7 +20,7 @@ namespace Notenverwaltung
 
     private void Border_MouseDown(object sender, MouseButtonEventArgs e)
     {
-      if (e.ChangedButton == MouseButton.Left)
+      if (e.ChangedButton.Equals(MouseButton.Left))
         this.DragMove();
     }
 
@@ -43,58 +45,65 @@ namespace Notenverwaltung
       switch (_currPage)
       {
         case CurrentPage.showAll:
+        {
           this.frame.Content = new ShowGrades();
           break;
+        }
         case CurrentPage.showAvgs:
+        {
           this.frame.Content = new ShowAverages();
           break;
+        }
         case CurrentPage.newEntry:
+        {
           this.frame.Content = new AddGrade();
           break;
+        }
         case CurrentPage.editEntry:
+        {
           this.frame.Content = new EditGrades();
           break;
+        }
       }
     }
 
 
-    private void brdAddGrade_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void BrdAddGrade_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
       _currPage = CurrentPage.newEntry;
       SwitchPage();
     }
 
 
-    private void brdEditGrade_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void BrdEditGrade_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
       _currPage = CurrentPage.editEntry;
       SwitchPage();
     }
 
 
-    private void brdListAvgs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void BrdListAvgs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
       _currPage = CurrentPage.showAvgs;
       SwitchPage();
     }
 
 
-    private void brdListAll_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void BrdListAll_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
       if (CSVGrade.Grades != null)
       {
         _currPage = CurrentPage.showAll;
         SwitchPage();
+        return;
       }
-      else
-      {
-        MessageDialog dlg = new(text:"Bitte warten, bis die Daten geladen wurden", owner:this);
-        dlg.ShowDialog();
-      }
+
+      var dlg = new MessageDialog(text:"Bitte warten, bis die Daten geladen wurden", owner:this);
+      dlg.ShowDialog();
     }
 
 
-    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    private void Window_Closing(object sender, CancelEventArgs e)
     {
       Grade.SaveAll();
     }
