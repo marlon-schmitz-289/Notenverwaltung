@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Notenverwaltung
 {
@@ -25,6 +26,30 @@ namespace Notenverwaltung
     }
 
 
+    private void brdSchliessen_MouseEnter(object sender, MouseEventArgs e)
+    {
+      brdSchliessen.Background = Brushes.Red;
+    }
+
+
+    private void brdSchliessen_MouseLeave(object sender, MouseEventArgs e)
+    {
+      brdSchliessen.Background = new SolidColorBrush() { Color = Color.FromArgb(255, 197, 37, 37) };
+    }
+
+
+    private void brdMinimieren_MouseEnter(object sender, MouseEventArgs e)
+    {
+      brdMinimieren.Background = new SolidColorBrush() { Color = Color.FromArgb(255, 169, 150, 150) };
+    }
+
+
+    private void brdMinimieren_MouseLeave(object sender, MouseEventArgs e)
+    {
+      brdMinimieren.Background = new SolidColorBrush() { Color = Color.FromArgb(255, 134, 124, 124) };
+    }
+
+
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
       brdSchliessen.MouseLeftButtonDown += (sender, e) => Application.Current.Shutdown();
@@ -37,6 +62,11 @@ namespace Notenverwaltung
 
       Subject.ReadAll();
       Grade.ReadAll();
+
+      if (CSVSubject.Subjects.Count == 0)
+      {
+        new FirstTimeSubjectsDialog() { Owner = this }.ShowDialog();
+      }
     }
 
 

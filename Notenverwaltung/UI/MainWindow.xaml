@@ -19,13 +19,13 @@
       <Label x:Name="lblNotenverwaltung" Content="Notenverwaltung" Margin="12,10,583,395" Background="{x:Null}" FontFamily="Georgia" FontSize="25" Foreground="White"/>
     </Border>
     <Grid Background="{x:Null}" Width="20" Height="20" Margin="770,10,10,420">
-      <Border x:Name="brdSchliessen" CornerRadius="5" Background="#FFC52525" Width="20" Height="20">
+      <Border  MouseEnter="brdSchliessen_MouseEnter" MouseLeave="brdSchliessen_MouseLeave" x:Name="brdSchliessen" CornerRadius="5" Background="#FFC52525" Width="20" Height="20">
         <Label x:Name="lblSchliessen" Content="X" Padding="0,0,0,0" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Foreground="White"/>
       </Border>
     </Grid>
 
     <Grid Background="{x:Null}" Width="20" Height="20" Margin="770,10,10,420">
-      <Border x:Name="brdMinimieren" CornerRadius="5" Background="#FF867C7C" Width="20" Height="20" Margin="-25,0,25,0">
+      <Border MouseEnter="brdMinimieren_MouseEnter" MouseLeave="brdMinimieren_MouseLeave" x:Name="brdMinimieren" CornerRadius="5" Background="#FF867C7C" Width="20" Height="20" Margin="-25,0,25,0">
         <Label x:Name="lblMinimieren" Content="-" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
       </Border>
     </Grid>

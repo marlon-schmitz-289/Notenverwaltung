@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
@@ -12,6 +13,11 @@ namespace Notenverwaltung
     /// Name des Faches
     /// </summary>
     public String Name { get; set; }
+    public static List<Subject> Subjects
+    {
+      get => CSVSubject.Subjects;
+      set => CSVSubject.Subjects = value;
+    }
     #endregion
 
     #region Constructors
@@ -46,6 +52,7 @@ namespace Notenverwaltung
     /// <returns>Liste mit allen Fächern
     /// </returns>
     public static void ReadAll() => CSVSubject.ReadAll();
+    public static void SaveAll() => CSVSubject.SaveAll();
 
 
     public override bool Equals(object obj)

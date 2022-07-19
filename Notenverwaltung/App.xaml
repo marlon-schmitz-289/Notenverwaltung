@@ -9,6 +9,8 @@
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="./UI/Dictionaries/ComboBox.xaml" />
         <ResourceDictionary Source="./UI/Dictionaries/ListBox.xaml" />
+        <ResourceDictionary Source="./UI/Dictionaries/TextBox.xaml" />
+        <ResourceDictionary Source="./UI/Dictionaries/Button.xaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>
