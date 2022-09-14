@@ -6,6 +6,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
+using Google.Protobuf;
+
 namespace Notenverwaltung
 {
   public partial class MainWindow : Window
@@ -56,17 +58,14 @@ namespace Notenverwaltung
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
 
 #if DEBUG
-      MessageDialog dlg = new(text:$@"Test", owner:this);
-      dlg.ShowDialog();
+      new MessageDialog(text:$@"Test", owner:this).ShowDialog();
 #endif
 
       Subject.ReadAll();
       Grade.ReadAll();
 
       if (CSVSubject.Subjects.Count == 0)
-      {
         new FirstTimeSubjectsDialog() { Owner = this }.ShowDialog();
-      }
     }
 
 
@@ -92,6 +91,11 @@ namespace Notenverwaltung
         case CurrentPage.editEntry:
         {
           this.frame.Content = new EditGrades();
+          break;
+        }
+        case CurrentPage.editSubs:
+        {
+          this.frame.Content = new EditSubs();
           break;
         }
       }
@@ -128,14 +132,29 @@ namespace Notenverwaltung
         return;
       }
 
-      var dlg = new MessageDialog(text:"Bitte warten, bis die Daten geladen wurden", owner:this);
-      dlg.ShowDialog();
+      new MessageDialog(text:"Bitte warten, bis die Daten geladen wurden", owner:this).ShowDialog();
+    }
+
+
+    private void BrdEditSubs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      _currPage = CurrentPage.editSubs;
+      SwitchPage();
+      return;
     }
 
 
     private void Window_Closing(object sender, CancelEventArgs e)
     {
       Grade.SaveAll();
+    }
+
+
+    private void Window_Deactivated(object sender, EventArgs e)
+    {
+#if DEBUG
+      this.Topmost = true;
+#endif
     }
   }
 }

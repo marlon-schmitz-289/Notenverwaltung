@@ -10,7 +10,19 @@
   <Border CornerRadius="5" Background="#192B66DC">
     <Grid>
       <Border>
-        <ComboBox x:Name="cbxSubjects" Style="{DynamicResource CCBS}" Template="{DynamicResource ComboBoxTemplate}" Background="#AD000000" HorizontalAlignment="Left" Width="140" Height="30" VerticalAlignment="Top" BorderBrush="Black" Foreground="Black" SelectionChanged="CbxSubjects_SelectionChanged" />
+        <ComboBox x:Name="cbxSubjects"
+                  Style="{DynamicResource CCBS}"
+                  Template="{DynamicResource ComboBoxTemplate}"
+                  Background="#AD000000"
+                  HorizontalAlignment="Left"
+                  Width="140"
+                  Height="30"
+                  VerticalAlignment="Top"
+                  BorderBrush="Black"
+                  Foreground="Black"
+                  SelectionChanged="CbxSubjects_SelectionChanged"
+                  FontSize="17"
+                  FontWeight="DemiBold" />
       </Border>
 
       <Border CornerRadius="5" Background="#AD000000" Margin="0,40,0,0">

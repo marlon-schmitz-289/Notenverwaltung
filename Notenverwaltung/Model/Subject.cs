@@ -53,6 +53,7 @@ namespace Notenverwaltung
     /// </returns>
     public static void ReadAll() => CSVSubject.ReadAll();
     public static void SaveAll() => CSVSubject.SaveAll();
+    public override int GetHashCode() => base.GetHashCode();
 
 
     public override bool Equals(object obj)
@@ -62,9 +63,6 @@ namespace Notenverwaltung
         return Name.Equals(other.Name);
       return false;
     }
-
-
-    public override int GetHashCode() => base.GetHashCode();
 
 
     public double CalculateAverage()

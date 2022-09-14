@@ -5,66 +5,191 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notenverwaltung"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        AllowsTransparency="True" Background="Transparent"
-        WindowStyle="None" ResizeMode="NoResize" Foreground="{x:Null}" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Foreground="{x:Null}"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        Deactivated="Window_Deactivated">
   <Grid>
-    <Border CornerRadius="10" MouseDown="Border_MouseDown">
+    <Border CornerRadius="10"
+            MouseDown="Border_MouseDown">
       <Border.Background>
         <LinearGradientBrush>
-          <GradientStop Color="#7be9f6" Offset="0.0"/>
-          <GradientStop Color="#f083da" Offset="1"/>
+          <GradientStop Color="#7be9f6" 
+                        Offset="0.0"/>
+          <GradientStop Color="#f083da" 
+                        Offset="1"/>
         </LinearGradientBrush>
       </Border.Background>
-      <Label x:Name="lblNotenverwaltung" Content="Notenverwaltung" Margin="12,10,583,395" Background="{x:Null}" FontFamily="Georgia" FontSize="25" Foreground="White"/>
+      <Label x:Name="lblNotenverwaltung"
+             Content="Notenverwaltung"
+             Margin="12,10,583,395"
+             Background="{x:Null}"
+             FontFamily="Georgia"
+             FontSize="25"
+             Foreground="White"/>
     </Border>
-    <Grid Background="{x:Null}" Width="20" Height="20" Margin="770,10,10,420">
-      <Border  MouseEnter="brdSchliessen_MouseEnter" MouseLeave="brdSchliessen_MouseLeave" x:Name="brdSchliessen" CornerRadius="5" Background="#FFC52525" Width="20" Height="20">
-        <Label x:Name="lblSchliessen" Content="X" Padding="0,0,0,0" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Height="20" Foreground="White"/>
+    <Grid Background="{x:Null}"
+          Width="20"
+          Height="20"
+          Margin="770,10,10,420">
+      <Border MouseEnter="brdSchliessen_MouseEnter"
+              MouseLeave="brdSchliessen_MouseLeave"
+              x:Name="brdSchliessen"
+              CornerRadius="5"
+              Background="#FFC52525"
+              Width="20"
+              Height="20">
+        <Label x:Name="lblSchliessen"
+               Content="X"
+               Padding="0,0,0,0"
+               Background="{x:Null}"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Width="20"
+               Height="20"
+               Foreground="White"/>
       </Border>
     </Grid>
 
-    <Grid Background="{x:Null}" Width="20" Height="20" Margin="770,10,10,420">
-      <Border MouseEnter="brdMinimieren_MouseEnter" MouseLeave="brdMinimieren_MouseLeave" x:Name="brdMinimieren" CornerRadius="5" Background="#FF867C7C" Width="20" Height="20" Margin="-25,0,25,0">
-        <Label x:Name="lblMinimieren" Content="-" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+    <Grid Background="{x:Null}"
+          Width="20" 
+          Height="20" 
+          Margin="770,10,10,420">
+      <Border MouseEnter="brdMinimieren_MouseEnter"
+              MouseLeave="brdMinimieren_MouseLeave"
+              x:Name="brdMinimieren" 
+              CornerRadius="5" 
+              Background="#FF867C7C"
+              Width="20"
+              Height="20"
+              Margin="-25,0,25,0">
+        <Label x:Name="lblMinimieren"
+               Content="-"
+               Foreground="White" 
+               HorizontalContentAlignment="Center" 
+               VerticalContentAlignment="Top"/>
       </Border>
     </Grid>
-    <Grid x:Name="GrdMenue" Margin="15,60,590,15">
-      <Border x:Name="BdrMenue" CornerRadius="5">
+    <Grid x:Name="GrdMenue" 
+          Margin="15,60,590,15">
+      <Border x:Name="BdrMenue" 
+              CornerRadius="5">
         <Border.Background>
-          <SolidColorBrush Color="#FFEDE5E5" Opacity="0.5"/>
+          <SolidColorBrush Color="#FFEDE5E5" 
+                           Opacity="0.5"/>
         </Border.Background>
         <Grid>
-          <Border x:Name="brdAddGrade" CornerRadius="5" Margin="10,10,10,340" MouseLeftButtonDown="BrdAddGrade_MouseLeftButtonDown">
+          <Border x:Name="brdAddGrade" 
+                  CornerRadius="5" 
+                  Margin="10,10,10,340" 
+                  MouseLeftButtonDown="BrdAddGrade_MouseLeftButtonDown">
             <Border.Background>
-              <SolidColorBrush Color="#FF696565" Opacity="0.5"/>
+              <SolidColorBrush Color="#FF696565" 
+                               Opacity="0.5"/>
             </Border.Background>
-            <Label Content="Note hinzufügen" BorderBrush="{x:Null}" Foreground="White" Padding="0,0,0,0" Background="{x:Null}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Note hinzufügen" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="White"
+                   Padding="0,0,0,0"
+                   Background="{x:Null}" 
+                   VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"/>
           </Border>
-          <Border x:Name="brdEditGrade" CornerRadius="5" Margin="10,60,10,290" MouseLeftButtonDown="BrdEditGrade_MouseLeftButtonDown">
+          <Border x:Name="brdEditGrade"
+                  CornerRadius="5" 
+                  Margin="10,60,10,290"
+                  MouseLeftButtonDown="BrdEditGrade_MouseLeftButtonDown">
             <Border.Background>
-              <SolidColorBrush Color="#FF696565" Opacity="0.5"/>
+              <SolidColorBrush Color="#FF696565" 
+                               Opacity="0.5"/>
             </Border.Background>
-            <Label Content="Noten verwalten" BorderBrush="{x:Null}" Foreground="White" Padding="0,0,0,0" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Noten verwalten" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="White" 
+                   Padding="0,0,0,0"
+                   Background="{x:Null}" 
+                   HorizontalContentAlignment="Center" 
+                   VerticalContentAlignment="Center"/>
           </Border>
-          <Border x:Name="brdListAvgs" CornerRadius="5" Margin="10,110,10,240" MouseLeftButtonDown="BrdListAvgs_MouseLeftButtonDown">
+          <Border x:Name="brdListAvgs"
+                  CornerRadius="5" 
+                  Margin="10,110,10,240"
+                  MouseLeftButtonDown="BrdListAvgs_MouseLeftButtonDown">
             <Border.Background>
-              <SolidColorBrush Color="#FF696565" Opacity="0.5"/>
+              <SolidColorBrush Color="#FF696565" 
+                               Opacity="0.5"/>
             </Border.Background>
-            <Label Content="Schnitte anzeigen" BorderBrush="{x:Null}" Foreground="White" Padding="0,0,0,0" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Schnitte anzeigen" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="White"
+                   Padding="0,0,0,0"
+                   Background="{x:Null}"
+                   HorizontalContentAlignment="Center" 
+                   VerticalContentAlignment="Center"/>
           </Border>
-          <Border x:Name="brdListAll" CornerRadius="5" Margin="10,340,10,10" MouseLeftButtonDown="BrdListAll_MouseLeftButtonDown">
+          <Border x:Name="brdAddSubjects"
+                  CornerRadius="5" 
+                  Margin="10,160,10,190"
+                  MouseLeftButtonDown="BrdListAvgs_MouseLeftButtonDown">
             <Border.Background>
-              <SolidColorBrush Color="#FF696565" Opacity="0.5"/>
+              <SolidColorBrush Color="#FF696565" 
+                               Opacity="0.5"/>
             </Border.Background>
-            <Label Content="Alle Noten anzeigen" BorderBrush="{x:Null}" Foreground="White" Padding="0,0,0,0" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="Schnitte anzeigen" 
+                   BorderBrush="{x:Null}" 
+                   Foreground="White"
+                   Padding="0,0,0,0"
+                   Background="{x:Null}"
+                   HorizontalContentAlignment="Center" 
+                   VerticalContentAlignment="Center"/>
+          </Border>
+          <Border x:Name="brdEditSubs"
+                  CornerRadius="5" Margin="10,290,10,60"
+                  MouseLeftButtonDown="BrdEditSubs_MouseLeftButtonDown">
+            <Border.Background>
+              <SolidColorBrush Color="#FF696565"
+                               Opacity="0.5"/>
+            </Border.Background>
+            <Label Content="Fächer verändern"
+                   BorderBrush="{x:Null}" 
+                   Foreground="White" 
+                   Padding="0,0,0,0"
+                   Background="{x:Null}" 
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+          </Border>
+          <Border x:Name="brdListAll"
+                  CornerRadius="5" Margin="10,340,10,10"
+                  MouseLeftButtonDown="BrdListAll_MouseLeftButtonDown">
+            <Border.Background>
+              <SolidColorBrush Color="#FF696565"
+                               Opacity="0.5"/>
+            </Border.Background>
+            <Label Content="Alle Noten anzeigen"
+                   BorderBrush="{x:Null}" 
+                   Foreground="White" 
+                   Padding="0,0,0,0"
+                   Background="{x:Null}" 
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
           </Border>
         </Grid>
       </Border>
     </Grid>
     <Grid Background="{x:Null}">
-      <Border CornerRadius="5" Margin="220,60,20,15">
-        <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
+      <Border CornerRadius="5" 
+              Margin="220,60,20,15">
+        <Frame x:Name="frame" 
+               NavigationUIVisibility="Hidden"/>
       </Border>
     </Grid>
   </Grid>

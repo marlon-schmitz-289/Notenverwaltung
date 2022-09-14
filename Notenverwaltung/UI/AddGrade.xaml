@@ -10,7 +10,7 @@
   <Grid>
     <Border CornerRadius="5" Background="#192B66DC">
       <Grid>
-        <Label Content="Fach:" Foreground="White" FontSize="14" Margin="10,21,500,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" VerticalAlignment="Top"/>
+        <Label Content="Fach:" Foreground="White" FontSize="14" Margin="10,21,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50"/>
         <Border CornerRadius="5" Margin="75,25,50,0" Height="25" VerticalAlignment="Top">
           <ComboBox x:Name="cbxSubject" Foreground="Black" Style="{DynamicResource CCBS}" Template="{DynamicResource ComboBoxTemplate}"/>
         </Border>
