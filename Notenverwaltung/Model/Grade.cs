@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
@@ -10,6 +11,11 @@ namespace Notenverwaltung
     public int Rating { get; set; }
     public Type TypeG { get; set; }
     public DateTime Creation { get; set; }
+    public static List<Grade> Grades
+    {
+      get => CSVGrade.Grades;
+      set => CSVGrade.Grades = value;
+    }
     #endregion
 
     #region Constructors

@@ -25,8 +25,29 @@
                   FontWeight="DemiBold" />
       </Border>
 
-      <Border CornerRadius="5" Background="#AD000000" Margin="0,40,0,0">
-        <ListBox x:Name="lbxGrades" Style="{DynamicResource LBS}" Background="White" Foreground="Black" BorderBrush="Black" FontSize="24"/>
+      <Border CornerRadius="5"
+              Background="#AD000000"
+              Margin="0,40,0,0">
+        <ListBox x:Name="lbxGrades"
+                 Style="{DynamicResource LBS}"
+                 Background="White"
+                 Foreground="Black"
+                 BorderBrush="Black"
+                 FontSize="24"/>
+      </Border>
+
+      <Border x:Name="brdTrash"
+              CornerRadius="5"
+              Background="White"
+              Margin="530,0,0,320"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              BorderBrush="Black"
+              BorderThickness="1"
+              MouseLeftButtonDown="BrdTrash_MouseLeftButtonDown"
+              MouseEnter="BrdTrash_MouseEnter"
+              MouseLeave="BrdTrash_MouseLeave">
+        <Image Source="./trashcan.png"/>
       </Border>
     </Grid>
   </Border>

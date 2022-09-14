@@ -57,7 +57,13 @@ namespace Notenverwaltung
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-      brdSchliessen.MouseLeftButtonDown += (sender, e) => Application.Current.Shutdown();
+      brdSchliessen.MouseLeftButtonDown += (sender, e) =>
+      {
+        Grade.SaveAll();
+        Deinitialize();
+        Application.Current.Shutdown();
+      };
+
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
 
 #if DEBUG
@@ -155,14 +161,6 @@ namespace Notenverwaltung
     {
       _currPage = CurrentPage.editSubs;
       SwitchPage();
-      return;
-    }
-
-
-    private void Window_Closing(object sender, CancelEventArgs e)
-    {
-      Grade.SaveAll();
-      Deinitialize();
     }
 
 
