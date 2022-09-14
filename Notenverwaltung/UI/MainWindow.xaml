@@ -38,8 +38,8 @@
           Width="20"
           Height="20"
           Margin="770,10,10,420">
-      <Border MouseEnter="brdSchliessen_MouseEnter"
-              MouseLeave="brdSchliessen_MouseLeave"
+      <Border MouseEnter="BrdSchliessen_MouseEnter"
+              MouseLeave="BrdSchliessen_MouseLeave"
               x:Name="brdSchliessen"
               CornerRadius="5"
               Background="#FFC52525"
@@ -63,8 +63,8 @@
           Width="20" 
           Height="20" 
           Margin="770,10,10,420">
-      <Border MouseEnter="brdMinimieren_MouseEnter"
-              MouseLeave="brdMinimieren_MouseLeave"
+      <Border MouseEnter="BrdMinimieren_MouseEnter"
+              MouseLeave="BrdMinimieren_MouseLeave"
               x:Name="brdMinimieren" 
               CornerRadius="5" 
               Background="#FF867C7C"
