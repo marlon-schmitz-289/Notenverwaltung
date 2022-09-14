@@ -14,8 +14,7 @@
         ResizeMode="NoResize"
         Foreground="{x:Null}"
         Loaded="Window_Loaded"
-        Closing="Window_Closing"
-        Deactivated="Window_Deactivated">
+        Closing="Window_Closing">
   <Grid>
     <Border CornerRadius="10"
             MouseDown="Border_MouseDown">

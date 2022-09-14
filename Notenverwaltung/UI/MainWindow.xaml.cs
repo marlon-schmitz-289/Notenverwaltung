@@ -58,7 +58,8 @@ namespace Notenverwaltung
       brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
 
 #if DEBUG
-      new MessageDialog(text:$@"Test", owner:this).ShowDialog();
+      //new MessageDialog(text:$@"Test", owner:this).ShowDialog();
+      this.Topmost = true;
 #endif
 
       Subject.ReadAll();
@@ -147,14 +148,6 @@ namespace Notenverwaltung
     private void Window_Closing(object sender, CancelEventArgs e)
     {
       Grade.SaveAll();
-    }
-
-
-    private void Window_Deactivated(object sender, EventArgs e)
-    {
-#if DEBUG
-      this.Topmost = true;
-#endif
     }
   }
 }

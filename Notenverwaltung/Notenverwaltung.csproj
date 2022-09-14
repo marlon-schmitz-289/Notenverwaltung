@@ -20,19 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="UI\noten.png" />
-    <None Remove="UI\password.png" />
-    <None Remove="UI\username.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.28" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="UI\noten.png" />
-    <Resource Include="UI\password.png" />
-    <Resource Include="UI\username.png" />
   </ItemGroup>
 
 </Project>
