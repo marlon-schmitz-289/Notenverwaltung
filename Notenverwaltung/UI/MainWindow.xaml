@@ -136,22 +136,6 @@
                    HorizontalContentAlignment="Center" 
                    VerticalContentAlignment="Center"/>
           </Border>
-          <Border x:Name="brdAddSubjects"
-                  CornerRadius="5" 
-                  Margin="10,160,10,190"
-                  MouseLeftButtonDown="BrdListAvgs_MouseLeftButtonDown">
-            <Border.Background>
-              <SolidColorBrush Color="#FF696565" 
-                               Opacity="0.5"/>
-            </Border.Background>
-            <Label Content="Schnitte anzeigen" 
-                   BorderBrush="{x:Null}" 
-                   Foreground="White"
-                   Padding="0,0,0,0"
-                   Background="{x:Null}"
-                   HorizontalContentAlignment="Center" 
-                   VerticalContentAlignment="Center"/>
-          </Border>
           <Border x:Name="brdEditSubs"
                   CornerRadius="5" Margin="10,290,10,60"
                   MouseLeftButtonDown="BrdEditSubs_MouseLeftButtonDown">
