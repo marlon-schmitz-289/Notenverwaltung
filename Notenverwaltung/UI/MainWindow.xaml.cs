@@ -1,15 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-using DiscordRPC.Logging;
 using DiscordRPC;
-
-using Google.Protobuf;
+using DiscordRPC.Logging;
 
 namespace Notenverwaltung
 {
@@ -64,12 +59,10 @@ namespace Notenverwaltung
         Application.Current.Shutdown();
       };
 
-      brdMinimieren.MouseLeftButtonDown += (sender, e) => this.WindowState = WindowState.Minimized;
-
-#if DEBUG
-      //new MessageDialog(text:$@"Test", owner:this).ShowDialog();
-      this.Topmost = true;
-#endif
+      brdMinimieren.MouseLeftButtonDown += (sender, e) =>
+      {
+        this.WindowState = WindowState.Minimized;
+      };
 
       Subject.ReadAll();
       Grade.ReadAll();
@@ -82,6 +75,11 @@ namespace Notenverwaltung
       var timer = new System.Timers.Timer(150);
       timer.Elapsed += (sender, args) => { Client.Invoke(); };
       timer.Start();
+
+#if DEBUG
+      //new MessageDialog(text:$@"Test", owner:this).ShowDialog();
+      new GradeEditDlg(null) { Owner = this }.ShowDialog();
+#endif
     }
 
 
@@ -153,7 +151,7 @@ namespace Notenverwaltung
         return;
       }
 
-      new MessageDialog(text:"Bitte warten, bis die Daten geladen wurden", owner:this).ShowDialog();
+      new MessageDialog(text: "Bitte warten, bis die Daten geladen wurden", owner: this).ShowDialog();
     }
 
 
