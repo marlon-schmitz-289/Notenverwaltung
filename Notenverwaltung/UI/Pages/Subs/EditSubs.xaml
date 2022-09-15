@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Notenverwaltung"
       mc:Ignorable="d"
       Background="Transparent"
-      d:DesignHeight="350"
+      d:DesignHeight="375"
       d:DesignWidth="560"
       Title="EditSubs">
 
@@ -20,7 +20,7 @@
              BorderThickness="1"
              VerticalContentAlignment="Center"
              HorizontalContentAlignment="Center" />
-      <Border Margin="10,80,10,10" BorderBrush="Black" BorderThickness="1,1,1,1" >
+      <Border Margin="10,90,10,10" BorderBrush="Black" BorderThickness="1,1,1,1" >
         <TextBlock
              Padding="5"
              FontSize="15"

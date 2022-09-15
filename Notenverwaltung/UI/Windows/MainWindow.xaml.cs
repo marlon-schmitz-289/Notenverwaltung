@@ -78,7 +78,7 @@ namespace Notenverwaltung
 
 #if DEBUG
       //new MessageDialog(text:$@"Test", owner:this).ShowDialog();
-      new GradeEditDlg(null) { Owner = this }.ShowDialog();
+      //new GradeEditDlg(null) { Owner = this }.ShowDialog();
 #endif
     }
 

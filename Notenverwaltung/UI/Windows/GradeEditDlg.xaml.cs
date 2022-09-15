@@ -6,21 +6,22 @@ namespace Notenverwaltung
   public partial class GradeEditDlg : Window
   {
     private Subject CurrSub { get; set; }
-    private Subject ChangedSub { get; set; }
+    private Subject ChangedSub { get; set; } = null;
 
 
     public GradeEditDlg(Subject sub)
     {
       InitializeComponent();
 
-      CurrSub = sub;
-      ChangedSub = sub is not null ? new(sub!.Name, true) : null;
+      CurrSub = new(sub?.Name, true);
+      ChangedSub = new(CurrSub?.Name, true);
 
       WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
       MainWindow.UpdateClient(
         sub is not null ? "Bearbeitung der Fächerliste" : "Hinzufügen eines Fachs",
-        sub is not null ? "Pfuscht am Stundenplan mies rum" : "Kek hat ein Fach vergessen KEKW");
+        sub is not null ? "Pfuscht am Stundenplan mies rum" : "Kek hat ein Fach vergessen KEKW"
+      );
     }
 
 

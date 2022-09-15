@@ -90,5 +90,12 @@ namespace Notenverwaltung
     {
       brdTrash.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFFFFFF");
     }
+
+
+    private void LbxGrades_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+      var g = lbxGrades.SelectedItem as Grade;
+      MainWindow.UpdateClient($"{g.Subject}, {g.TypeG}",$"{g.Rating}");
+    }
   }
 }

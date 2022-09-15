@@ -33,7 +33,8 @@
                  Background="White"
                  Foreground="Black"
                  BorderBrush="Black"
-                 FontSize="24"/>
+                 FontSize="24"
+                 SelectionChanged="LbxGrades_SelectionChanged"/>
       </Border>
 
       <Border x:Name="brdTrash"
