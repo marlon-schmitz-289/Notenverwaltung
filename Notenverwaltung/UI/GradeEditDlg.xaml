@@ -24,7 +24,6 @@
       <TextBox x:Name="tbxSubName"
                Margin="25,25,25,100"
                Style="{DynamicResource TextBox}"
-               Text="Penis"
                FontSize="24"
                FontWeight="DemiBold"
                TextAlignment="Center"
