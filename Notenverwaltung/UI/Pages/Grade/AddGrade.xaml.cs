@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace Notenverwaltung
 {
-  /// <summary>
-  /// Interaktionslogik für AddGrade.xaml
-  /// </summary>
   public partial class AddGrade : Page
   {
     public AddGrade()

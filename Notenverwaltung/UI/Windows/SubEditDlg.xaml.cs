@@ -3,18 +3,17 @@ using System.Windows.Input;
 
 namespace Notenverwaltung
 {
-  public partial class GradeEditDlg : Window
+  public partial class SubEditDlg : Window
   {
-    private Subject CurrSub { get; set; }
+    private Subject CurrSub { get; set; } = null;
     private Subject ChangedSub { get; set; } = null;
 
 
-    public GradeEditDlg(Subject sub)
+    public SubEditDlg(Subject sub)
     {
       InitializeComponent();
 
       CurrSub = new(sub?.Name, true);
-      ChangedSub = new(CurrSub?.Name, true);
 
       WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
@@ -27,16 +26,12 @@ namespace Notenverwaltung
 
     private void SaveSub(object sender, MouseButtonEventArgs e)
     {
+      ChangedSub = new(tbxSubName.Text, true);
 
       if (!Subject.Subjects.Contains(CurrSub!))
-      {
         Subject.Subjects.Add(ChangedSub);
-      }
       else
-      {
-        ChangedSub = new(tbxSubName.Text, true);
         Subject.Subjects[Subject.Subjects.IndexOf(CurrSub!)] = ChangedSub!;
-      }
 
       this.Close();
     }

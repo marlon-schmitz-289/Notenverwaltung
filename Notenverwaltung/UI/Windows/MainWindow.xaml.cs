@@ -55,7 +55,10 @@ namespace Notenverwaltung
       brdSchliessen.MouseLeftButtonDown += (sender, e) =>
       {
         Grade.SaveAll();
+        Subject.SaveAll();
+
         Deinitialize();
+
         Application.Current.Shutdown();
       };
 
