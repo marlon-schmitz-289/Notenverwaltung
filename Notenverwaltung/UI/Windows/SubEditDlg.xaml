@@ -10,7 +10,8 @@
         Width="350"
         AllowsTransparency="True"
         WindowStyle="None"
-        Background="Transparent">
+        Background="Transparent"
+        Loaded="Window_Loaded">
   
   <Border CornerRadius="5">
     

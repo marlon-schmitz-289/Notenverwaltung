@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+
+using Notenverwaltung.Utils;
 
 namespace Notenverwaltung
 {
@@ -76,6 +79,8 @@ namespace Notenverwaltung
       {
         ((Grade)lbxGrades.SelectedItem).Delete();
         lbxGrades.Items.Remove(lbxGrades.SelectedItem);
+
+        DiscordClient.UpdateClient("Übersicht der Noten aller Fächer", "schaut Noteneinträge an");
       }
     }
 
@@ -95,7 +100,9 @@ namespace Notenverwaltung
     private void LbxGrades_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       var g = lbxGrades.SelectedItem as Grade;
-      MainWindow.UpdateClient($"{g.Subject}, {g.TypeG}",$"{g.Rating}");
+      //string art = g.TypeG == Type.muendlich ? "Mündliche Note" : "Schulaufgabe";
+      //MainWindow.UpdateClient($"{g.Subject.Name}",$"{g.Rating}, {art}");
+      DiscordClient.UpdateClient($"{g?.Subject.Name}", $"{g?.Rating}, {Helper.GetDisplayName(g?.TypeG)}");
     }
   }
 }

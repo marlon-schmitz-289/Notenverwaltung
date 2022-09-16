@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
-  public class Grade
+    public class Grade
   {
     #region Fields
     public int Id { get; set; }

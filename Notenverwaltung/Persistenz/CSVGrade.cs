@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Notenverwaltung
 {
-  public static class CSVGrade
+    public static class CSVGrade
   {
     private static readonly String PATH_GRADES = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\noten.csv";
     private static readonly String PATH_LAST_ID = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\last.txt";

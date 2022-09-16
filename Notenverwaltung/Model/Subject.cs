@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Notenverwaltung
 {
-  /// <summary>
-  /// Einzelnes Fach mit Attribut Name und speziellen Funktionen
-  /// </summary>
-  public class Subject
+    /// <summary>
+    /// Einzelnes Fach mit Attribut Name und speziellen Funktionen
+    /// </summary>
+    public class Subject
   {
     #region Fields
     /// <summary>
@@ -29,7 +29,10 @@ namespace Notenverwaltung
       if (newSub)
         Name = name;
       else
-        Read(name);
+      {
+        var tmp = Read(name);
+        this.Name = tmp.Name;
+      }
     }
     #endregion
 
@@ -45,7 +48,7 @@ namespace Notenverwaltung
     /// <summary>
     /// Liest Fach mit übergebenem Namen ein
     /// </summary>
-    public void Read(String name) => CSVSubject.Read(name);
+    public Subject Read(String name) => CSVSubject.Read(name);
     /// <summary>
     /// Liest alle Fächer ein
     /// </summary>

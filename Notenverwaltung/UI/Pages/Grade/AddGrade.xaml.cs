@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Notenverwaltung
 {
-  public partial class AddGrade : Page
+    public partial class AddGrade : Page
   {
     public AddGrade()
     {

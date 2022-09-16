@@ -8,8 +8,11 @@
       d:DesignHeight="350" d:DesignWidth="560"
       Title="ShowGrades" Loaded="Page_Loaded">
   <Border CornerRadius="5" Background="#192B66DC">
+    
     <Grid>
+      
       <Border>
+        
         <ComboBox x:Name="cbxSubjects"
                   Style="{DynamicResource CCBS}"
                   Template="{DynamicResource ComboBoxTemplate}"
@@ -25,6 +28,7 @@
                   FontWeight="DemiBold" />
       </Border>
 
+      
       <Border CornerRadius="5"
               Background="#AD000000"
               Margin="0,40,0,0">
@@ -37,6 +41,7 @@
                  SelectionChanged="LbxGrades_SelectionChanged"/>
       </Border>
 
+      
       <Border x:Name="brdTrash"
               CornerRadius="5"
               Background="White"
@@ -48,8 +53,13 @@
               MouseLeftButtonDown="BrdTrash_MouseLeftButtonDown"
               MouseEnter="BrdTrash_MouseEnter"
               MouseLeave="BrdTrash_MouseLeave">
-        <Image Source="./trashcan.png"/>
+        
+        <Image Source="/UI/Assets/Images/trashcan.png"/>
+        
       </Border>
+      
     </Grid>
+    
   </Border>
+  
 </Page>

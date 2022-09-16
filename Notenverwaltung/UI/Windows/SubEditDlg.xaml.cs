@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Notenverwaltung
@@ -7,20 +8,15 @@ namespace Notenverwaltung
   {
     private Subject CurrSub { get; set; } = null;
     private Subject ChangedSub { get; set; } = null;
+    private Boolean _editSub = false;
 
 
     public SubEditDlg(Subject sub)
     {
       InitializeComponent();
 
-      CurrSub = new(sub?.Name, true);
-
       WindowStartupLocation = WindowStartupLocation.CenterOwner;
-
-      MainWindow.UpdateClient(
-        sub is not null ? "Bearbeitung der Fächerliste" : "Hinzufügen eines Fachs",
-        sub is not null ? "Pfuscht am Stundenplan mies rum" : "Kek hat ein Fach vergessen KEKW"
-      );
+      CurrSub = sub;
     }
 
 
@@ -33,7 +29,30 @@ namespace Notenverwaltung
       else
         Subject.Subjects[Subject.Subjects.IndexOf(CurrSub!)] = ChangedSub!;
 
+      ChangeAllGradesSub();
+
       this.Close();
+    }
+
+
+    private void ChangeAllGradesSub()
+    {
+      if (_editSub)
+        foreach(var g in Grade.Grades)
+          g.Subject = g.Subject.Name.Equals(CurrSub.Name) ? ChangedSub : g.Subject;
+    }
+
+
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+      _editSub = CurrSub is not null;
+
+      DiscordClient.UpdateClient(
+        _editSub ? "Bearbeitung der Fächerliste" : "Hinzufügen eines Fachs",
+        _editSub ? "Pfuscht am Stundenplan mies rum" : "Kek hat ein Fach vergessen KEKW"
+      );
+
+      tbxSubName.Text = _editSub ? CurrSub.Name : "";
     }
   }
 }

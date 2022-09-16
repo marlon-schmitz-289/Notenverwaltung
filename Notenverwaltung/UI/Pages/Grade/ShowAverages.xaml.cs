@@ -46,7 +46,7 @@ namespace Notenverwaltung
     private void LbxAvgs_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
       String[] curr = (lbxAvgs.SelectedItem as Label).Content.ToString().Split(':');
-      MainWindow.UpdateClient($"{curr[0]}",$"{curr[1]}");
+      DiscordClient.UpdateClient($"{curr[0]}",$"{curr[1]}");
     }
   }
 }
