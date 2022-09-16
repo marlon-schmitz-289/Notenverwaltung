@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Notenverwaltung
 {
-  /// <summary>
-  /// Interaction logic for EditSubs.xaml
-  /// </summary>
   public partial class EditSubs : Page
   {
     public EditSubs()
