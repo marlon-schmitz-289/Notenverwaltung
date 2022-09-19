@@ -24,7 +24,6 @@
                   BorderBrush="Black"
                   Foreground="Black"
                   SelectionChanged="CbxSubjects_SelectionChanged"
-                  FontSize="17"
                   FontWeight="DemiBold" />
       </Border>
 
@@ -37,7 +36,6 @@
                  Background="White"
                  Foreground="Black"
                  BorderBrush="Black"
-                 FontSize="24"
                  SelectionChanged="LbxGrades_SelectionChanged"/>
       </Border>
 
