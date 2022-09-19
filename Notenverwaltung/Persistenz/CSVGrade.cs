@@ -53,7 +53,7 @@ namespace Notenverwaltung
             Id = Int32.Parse(parts[0]),
             Subject = new(parts[1], true),
             Rating = Int32.Parse(parts[2]),
-            TypeG = (Type)Int32.Parse(parts[3]),
+            TypeG = (TypeGrade)Int32.Parse(parts[3]),
             Creation = DateTime.Parse(parts[4])
           });
         }

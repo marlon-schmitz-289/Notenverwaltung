@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Notenverwaltung
 {
-  public enum Type
+  public enum TypeGrade
   {
     [Display(Name = "Mündliche Note")]
     muendlich = 1,

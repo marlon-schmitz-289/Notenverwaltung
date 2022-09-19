@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="UI\Assets\Images\add.png" />
     <None Remove="UI\Assets\Images\trashcan.png" />
   </ItemGroup>
 
@@ -28,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="UI\Assets\Images\add.png" />
     <Resource Include="UI\Assets\Images\trashcan.png" />
   </ItemGroup>
 

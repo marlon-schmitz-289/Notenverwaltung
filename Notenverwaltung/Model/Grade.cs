@@ -9,7 +9,7 @@ namespace Notenverwaltung
     public int Id { get; set; }
     public Subject Subject { get; set; }
     public int Rating { get; set; }
-    public Type TypeG { get; set; }
+    public TypeGrade TypeG { get; set; }
     public DateTime Creation { get; set; }
     public static List<Grade> Grades
     {
@@ -24,7 +24,7 @@ namespace Notenverwaltung
       Id = 0;
       Subject = new Subject("unbekannt", true);
       Rating = 6;
-      TypeG = Type.muendlich;
+      TypeG = TypeGrade.muendlich;
       Creation = DateTime.Now;
     }
 
@@ -38,7 +38,7 @@ namespace Notenverwaltung
       Creation = n.Creation;
     }
 
-    public Grade(Subject fach, int note, Type artn, DateTime create)
+    public Grade(Subject fach, int note, TypeGrade artn, DateTime create)
     {
       Id = GetNextID();
       Subject = fach;
@@ -47,7 +47,7 @@ namespace Notenverwaltung
       Creation = create;
     }
 
-    public Grade(int id, Subject fach, int note, Type artn, DateTime create)
+    public Grade(int id, Subject fach, int note, TypeGrade artn, DateTime create)
     {
       Id = id;
       Subject = fach;

@@ -45,6 +45,7 @@ namespace Notenverwaltung
     /// Konvertiert Objekt zu gut darstellbarem String
     /// </summary>
     public override string ToString() => $"{Name,-12}";
+    public void Delete() => CSVSubject.Delete(this);
     /// <summary>
     /// Liest Fach mit übergebenem Namen ein
     /// </summary>
@@ -89,12 +90,12 @@ namespace Notenverwaltung
       {
         if (grade.Subject.Equals(this))
         {
-          if (grade.TypeG == Type.schulaufgabe)
+          if (grade.TypeG == TypeGrade.schulaufgabe)
           {
             average += grade.Rating * 2;
             count += 2;
           }
-          else if (grade.TypeG == Type.muendlich)
+          else if (grade.TypeG == TypeGrade.muendlich)
           {
             average += grade.Rating;
             count++;

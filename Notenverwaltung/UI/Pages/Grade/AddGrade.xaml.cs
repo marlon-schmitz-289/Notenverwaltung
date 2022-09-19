@@ -15,7 +15,7 @@ namespace Notenverwaltung
       brdDone.MouseLeftButtonDown += DoneButton;
 
       cbxSubject.Loaded += (sender, e) => cbxSubject.ItemsSource = CSVSubject.Subjects;
-      cbxType.Loaded += (sender, e) => cbxType.ItemsSource = Enum.GetValues(typeof(Type));
+      cbxType.Loaded += (sender, e) => cbxType.ItemsSource = Enum.GetValues(typeof(TypeGrade));
     }
 
 
@@ -27,7 +27,7 @@ namespace Notenverwaltung
         g.Id = Grade.GetNextID();
         g.Subject = cbxSubject.SelectedItem as Subject;
         g.Rating = Int32.Parse((cbxRating.SelectedItem as ComboBoxItem).Content.ToString());
-        g.TypeG = (Type)cbxType.SelectedItem;
+        g.TypeG = (TypeGrade)cbxType.SelectedItem;
         g.Save();
 
         ClearComboBoxes();

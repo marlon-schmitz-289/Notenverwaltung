@@ -27,7 +27,7 @@ namespace Notenverwaltung
 
       tmp.Subject = lbxSubject.SelectedItem as Subject;
       tmp.Rating = (Int32)lbxRating.SelectedItem;
-      tmp.TypeG = (Type)((Int32)lbxType.SelectedItem);
+      tmp.TypeG = (TypeGrade)((Int32)lbxType.SelectedItem);
 
       return tmp;
     }
@@ -62,7 +62,7 @@ namespace Notenverwaltung
     {
       lbxType.Items.Clear();
 
-      foreach (Type t in Enum.GetValues(typeof(Type)))
+      foreach (TypeGrade t in Enum.GetValues(typeof(TypeGrade)))
         lbxType.Items.Add(t);
     }
 

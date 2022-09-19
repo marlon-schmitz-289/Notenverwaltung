@@ -20,6 +20,13 @@ namespace Notenverwaltung
     }
 
 
+    public static void Delete(Subject s)
+    {
+      Subjects.Remove(s);
+      SaveAll();
+    }
+
+
     public static void SaveAll()
     {
       StreamWriter sw = new(PATH, false);
