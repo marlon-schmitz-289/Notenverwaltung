@@ -11,7 +11,9 @@
       Title="EditSubs">
 
   <Border CornerRadius="5" Background="#192B66DC">
+    
     <Grid>
+      
       <Label Margin="10,10,10,290"
              Content="Bearbeiten der Fächerliste:"
              FontWeight="DemiBold"
@@ -20,7 +22,9 @@
              BorderThickness="1"
              VerticalContentAlignment="Center"
              HorizontalContentAlignment="Center" />
+      
       <Border Margin="10,90,10,10" BorderBrush="Black" BorderThickness="1,1,1,1" >
+        
         <TextBlock
              Padding="5"
              FontSize="15"
@@ -30,7 +34,11 @@
           - bei doppelclick in Liste soll sich EditSubDlg öffnen mit übergebenem Subject (Methode erstellen über XAML reicht, funktionalität für alles würd ich dann machen) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
           - den Dialog da würd ich dann auch noch erstellen und Backend machen, frontend dazu kannst du wenn du willst
         </TextBlock>
+        
       </Border>
+      
     </Grid>
+    
   </Border>
+  
 </Page>
