@@ -55,10 +55,22 @@ namespace Notenverwaltung
     /// <returns>Liste mit allen Fächern
     /// </returns>
     public static void ReadAll() => CSVSubject.ReadAll();
+    /// <summary>
+    /// Speichert alle Fächer in Datei ein
+    /// </summary>
     public static void SaveAll() => CSVSubject.SaveAll();
+    /// <summary>
+    /// Gibt den HashCode eines Objekts zurück
+    /// </summary>
+    /// <returns>(int) hashCode</returns>
     public override int GetHashCode() => base.GetHashCode();
 
 
+    /// <summary>
+    /// Prüft, ob ein weiteres Objekt diesem gleicht
+    /// </summary>
+    /// <param name="obj">Objekt</param>
+    /// <returns>(bool) sameSub</returns>
     public override bool Equals(object obj)
     {
       Subject other = obj as Subject;
