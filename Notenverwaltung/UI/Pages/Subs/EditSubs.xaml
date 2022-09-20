@@ -11,7 +11,8 @@
       Title="EditSubs"
       Loaded="Page_Loaded">
 
-  <Border CornerRadius="5" Background="Transparent">
+  <Border CornerRadius="5"
+          Background="Transparent">
 
     <Grid>
 
@@ -46,9 +47,11 @@
 
                     <RadialGradientBrush>
 
-                      <GradientStop Color="Red" Offset="1"/>
+                      <GradientStop Color="Red"
+                                    Offset="1"/>
 
-                      <GradientStop Color="White" Offset="0.569"/>
+                      <GradientStop Color="White"
+                                    Offset="0.569"/>
 
                     </RadialGradientBrush>
 
@@ -59,9 +62,11 @@
 
                     <RadialGradientBrush>
 
-                      <GradientStop Color="Red" Offset="0.1"/>
+                      <GradientStop Color="Red"
+                                    Offset="0.1"/>
 
-                      <GradientStop Color="White" Offset="06"/>
+                      <GradientStop Color="White"
+                                    Offset="06"/>
 
                     </RadialGradientBrush>
 
@@ -90,9 +95,11 @@
 
                     <RadialGradientBrush>
 
-                      <GradientStop Color="Red" Offset="1"/>
+                      <GradientStop Color="Red"
+                                    Offset="1"/>
 
-                      <GradientStop Color="White" Offset="0.569"/>
+                      <GradientStop Color="White"
+                                    Offset="0.569"/>
 
                     </RadialGradientBrush>
 
@@ -103,9 +110,11 @@
 
                     <RadialGradientBrush>
 
-                      <GradientStop Color="Red" Offset="0.1"/>
+                      <GradientStop Color="Red"
+                                    Offset="0.1"/>
 
-                      <GradientStop Color="White" Offset="06"/>
+                      <GradientStop Color="White"
+                                    Offset="06"/>
 
                     </RadialGradientBrush>
 
@@ -123,7 +132,10 @@
 
         <Border.Effect>
 
-          <DropShadowEffect Direction="315" BlurRadius="6" ShadowDepth="2" Color="Black"/>
+          <DropShadowEffect Direction="315"
+                            BlurRadius="6"
+                            ShadowDepth="2"
+                            Color="Black"/>
 
         </Border.Effect>
 
@@ -131,9 +143,11 @@
 
           <RadialGradientBrush>
 
-            <GradientStop Color="Red" Offset="1"/>
+            <GradientStop Color="Red"
+                          Offset="1"/>
 
-            <GradientStop Color="White" Offset="0.569"/>
+            <GradientStop Color="White"
+                          Offset="0.569"/>
 
           </RadialGradientBrush>
 
@@ -253,7 +267,10 @@
 
         <Border.Effect>
 
-          <DropShadowEffect Direction="315" BlurRadius="6" ShadowDepth="2" Color="Black"/>
+          <DropShadowEffect Direction="315"
+                            BlurRadius="6"
+                            ShadowDepth="2"
+                            Color="Black"/>
 
         </Border.Effect>
 
