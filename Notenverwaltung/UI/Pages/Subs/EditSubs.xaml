@@ -18,7 +18,7 @@
 
       <ListBox x:Name="lbxSubs"
                BorderBrush="Black"
-               BorderThickness="1,1,1,1"
+               BorderThickness="1"
                Style="{DynamicResource LBS}"
                Background="White"
                MouseDoubleClick="LbxSubs_MouseDoubleClick" />
