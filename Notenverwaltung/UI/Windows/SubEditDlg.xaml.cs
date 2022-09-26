@@ -24,6 +24,8 @@ namespace Notenverwaltung
     {
       ChangedSub = new(tbxSubName.Text, true);
 
+      if (ChangedSub.Name.Equals("")) return;
+
       if (!Subject.Subjects.Contains(CurrSub!))
         Subject.Subjects.Add(ChangedSub);
       else

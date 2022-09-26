@@ -18,29 +18,36 @@
                 Margin="10,10,0,0"
                 Background="White"
                 HorizontalAlignment="Left"
-                Width="350"
+                Width="495"
                 Height="40"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                FontSize="24" />
+                FontSize="17" />
+
       <Border x:Name="btnSafe"
               Background="Transparent"
               BorderBrush="White"
               BorderThickness="5"
               CornerRadius="10"
-              Margin="365,10,0,0"
+              Margin="510,10,0,0"
               MouseLeftButtonDown="btnSafe_Click"
               HorizontalAlignment="Left"
-              Width="185"
+              Width="40"
               Height="40"
               VerticalAlignment="Top">
-        <Label Content="Speichern"
-               HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center"
-               FontSize="24"
-               Foreground="White"
-               Margin="0,-9,0,-3" />
+        <Canvas>
+          <Rectangle Width="6"
+                     Height="24"
+                     Canvas.Left="12"
+                     Canvas.Top="3"
+                     Fill="White"/>
+          <Rectangle Width="24"
+                     Height="6"
+                     Canvas.Left="3"
+                     Canvas.Top="12"
+                     Fill="White"/>
+        </Canvas>
       </Border>
 
       <Label Content="Fach:"
