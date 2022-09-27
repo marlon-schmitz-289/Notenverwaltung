@@ -56,12 +56,13 @@ namespace Notenverwaltung
             TypeG = (TypeGrade)Int32.Parse(parts[3]),
             Creation = DateTime.Parse(parts[4])
           });
+
+          return;
         }
       }
-      else
-      {
-        File.Create(PATH_GRADES);
-      }
+
+
+      File.Create(PATH_GRADES).Close();
     }
 
 

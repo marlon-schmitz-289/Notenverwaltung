@@ -49,9 +49,12 @@ namespace Notenverwaltung
 
         foreach (var line in lines)
           Subjects.Add(new Subject(line, true));
+
+        return;
       }
-      else
-        throw new Exception("File could not be found!");
+
+
+      File.Create(PATH).Close();
     }
   }
 }
