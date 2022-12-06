@@ -3,11 +3,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
+using Notenverwaltung.Persistenz;
 using Notenverwaltung.Utils;
 
 namespace Notenverwaltung
 {
-  public partial class ShowGrades : Page
+    public partial class ShowGrades : Page
   {
     public ShowGrades()
     {

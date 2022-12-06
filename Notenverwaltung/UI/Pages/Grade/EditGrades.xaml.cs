@@ -2,12 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 
+using Notenverwaltung.Persistenz;
+
 namespace Notenverwaltung
 {
-  /// <summary>
-  /// Interaction logic for EditGrades.xaml
-  /// </summary>
-  public partial class EditGrades : Page
+    /// <summary>
+    /// Interaction logic for EditGrades.xaml
+    /// </summary>
+    public partial class EditGrades : Page
   {
     public EditGrades()
     {
