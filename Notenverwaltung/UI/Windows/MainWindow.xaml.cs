@@ -1,8 +1,7 @@
-﻿using System.Windows;
+﻿using Notenverwaltung.Persistenz;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-
-using Notenverwaltung.Persistenz;
 
 namespace Notenverwaltung
 {
@@ -10,45 +9,45 @@ namespace Notenverwaltung
     {
         private CurrentPage _currPage = CurrentPage.showAll;
 
-        public MainWindow()
+        public MainWindow ()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Border_MouseDown (object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton.Equals(MouseButton.Left))
                 DragMove();
         }
 
 
-        private void BrdSchliessen_MouseEnter(object sender, MouseEventArgs e)
+        private void BrdSchliessen_MouseEnter (object sender, MouseEventArgs e)
         {
             brdSchliessen.Background = Brushes.Red;
         }
 
 
-        private void BrdSchliessen_MouseLeave(object sender, MouseEventArgs e)
+        private void BrdSchliessen_MouseLeave (object sender, MouseEventArgs e)
         {
             brdSchliessen.Background = new SolidColorBrush() { Color = Color.FromArgb(255, 197, 37, 37) };
         }
 
 
-        private void BrdMinimieren_MouseEnter(object sender, MouseEventArgs e)
+        private void BrdMinimieren_MouseEnter (object sender, MouseEventArgs e)
         {
             brdMinimieren.Background = new SolidColorBrush() { Color = Color.FromArgb(255, 169, 150, 150) };
         }
 
 
-        private void BrdMinimieren_MouseLeave(object sender, MouseEventArgs e)
+        private void BrdMinimieren_MouseLeave (object sender, MouseEventArgs e)
         {
             brdMinimieren.Background = new SolidColorBrush() { Color = Color.FromArgb(255, 134, 124, 124) };
         }
 
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded (object sender, RoutedEventArgs e)
         {
             brdSchliessen.MouseLeftButtonDown += (sender, e) =>
             {
@@ -95,7 +94,7 @@ namespace Notenverwaltung
         }
 
 
-        private void SwitchPage()
+        private void SwitchPage ()
         {
             switch (_currPage)
             {
@@ -133,28 +132,28 @@ namespace Notenverwaltung
         }
 
 
-        private void BrdAddGrade_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BrdAddGrade_MouseLeftButtonDown (object sender, MouseButtonEventArgs e)
         {
             _currPage = CurrentPage.newEntry;
             SwitchPage();
         }
 
 
-        private void BrdEditGrade_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BrdEditGrade_MouseLeftButtonDown (object sender, MouseButtonEventArgs e)
         {
             _currPage = CurrentPage.editEntry;
             SwitchPage();
         }
 
 
-        private void BrdListAvgs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BrdListAvgs_MouseLeftButtonDown (object sender, MouseButtonEventArgs e)
         {
             _currPage = CurrentPage.showAvgs;
             SwitchPage();
         }
 
 
-        private void BrdListAll_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BrdListAll_MouseLeftButtonDown (object sender, MouseButtonEventArgs e)
         {
             if (CSVGrade.Grades != null)
             {
@@ -167,7 +166,7 @@ namespace Notenverwaltung
         }
 
 
-        private void BrdEditSubs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BrdEditSubs_MouseLeftButtonDown (object sender, MouseButtonEventArgs e)
         {
             _currPage = CurrentPage.editSubs;
             SwitchPage();

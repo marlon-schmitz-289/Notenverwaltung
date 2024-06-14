@@ -12,7 +12,7 @@ namespace Notenverwaltung.Persistenz
         public static List<Grade> Grades = new();
 
 
-        public static Grade Read(int id)
+        public static Grade Read (int id)
         {
             foreach (Grade g in Grades)
                 if (g.Id == id) return g;
@@ -21,7 +21,7 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void ReadAll()
+        public static void ReadAll ()
         {
             if (File.Exists(PATH_GRADES))
             {
@@ -66,7 +66,7 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void Save(Grade g)
+        public static void Save (Grade g)
         {
             if (!Grades.Contains(g)) Grades.Add(g);
             SaveAll();
@@ -74,7 +74,7 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void SaveAll()
+        public static void SaveAll ()
         {
             StreamWriter sw = new(PATH_GRADES, false);
             foreach (Grade g in Grades) sw.WriteLine(g.ToSaveableString());
@@ -82,7 +82,7 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void Update(Grade @new)
+        public static void Update (Grade @new)
         {
             Grade old = Read(@new.Id);
             if (old is not null) Grades[Grades.IndexOf(old)] = @new;
@@ -90,23 +90,30 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void Delete(Grade g)
+        public static void Delete (Grade g)
         {
             if (Grades.Contains(g)) Grades.Remove(g);
             SaveAll();
         }
 
 
-        public static int GetNextId()
+        public static int GetNextId ()
         {
-            StreamReader sr = new(PATH_LAST_ID);
-            int id = int.Parse(sr.ReadLine()) + 1;
-            sr.Close();
-            return id;
+            try
+            {
+                StreamReader sr = new(PATH_LAST_ID);
+                int id = int.Parse(sr.ReadLine()) + 1;
+                sr.Close();
+                return id;
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
 
-        public static void SetLastId(int id)
+        public static void SetLastId (int id)
         {
             StreamWriter sr = new(PATH_LAST_ID, false);
             sr.WriteLine(id);
