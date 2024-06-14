@@ -30,7 +30,7 @@ namespace Notenverwaltung.Persistenz
 
         public static void SaveAll ()
         {
-            StreamWriter sw = new(PATH, false);
+            StreamWriter sw = new(PATH_SUBJECTS, false);
             foreach (Subject g in Subjects) sw.WriteLine(g.ToSaveableString());
             sw.Close();
         }
