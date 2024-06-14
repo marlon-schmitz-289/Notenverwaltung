@@ -11,7 +11,7 @@ namespace Notenverwaltung.Persistenz
         public static List<Subject> Subjects { get; set; } = new();
 
 
-        public static Subject Read(string name)
+        public static Subject Read (string name)
         {
             foreach (Subject s in Subjects)
                 if (s is not null && s.Name is not null && s.Name.Equals(name)) return s;
@@ -20,14 +20,14 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void Delete(Subject s)
+        public static void Delete (Subject s)
         {
             Subjects.Remove(s);
             SaveAll();
         }
 
 
-        public static void SaveAll()
+        public static void SaveAll ()
         {
             StreamWriter sw = new(PATH, false);
             foreach (Subject g in Subjects) sw.WriteLine(g.ToSaveableString());
@@ -35,26 +35,28 @@ namespace Notenverwaltung.Persistenz
         }
 
 
-        public static void ReadAll()
+        public static void ReadAll ()
         {
-            if (File.Exists(PATH))
+            if (!Directory.Exists(PATH))
             {
-                List<string> lines = new();
-                StreamReader sr = new(File.Open(PATH, FileMode.Open));
-
-                while (!sr.EndOfStream)
-                    lines.Add(sr.ReadLine());
-
-                sr.Close();
-
-                foreach (string line in lines)
-                    Subjects.Add(new Subject(line, true));
-
-                return;
+                Directory.CreateDirectory(PATH);
             }
 
+            if (!File.Exists(PATH))
+            {
+                File.Create(PATH).Close();
+            }
 
-            File.Create(PATH).Close();
+            List<string> lines = new();
+            StreamReader sr = new(File.Open(PATH, FileMode.Open));
+
+            while (!sr.EndOfStream)
+                lines.Add(sr.ReadLine());
+
+            sr.Close();
+
+            foreach (string line in lines)
+                Subjects.Add(new Subject(line, true));
         }
     }
 }
