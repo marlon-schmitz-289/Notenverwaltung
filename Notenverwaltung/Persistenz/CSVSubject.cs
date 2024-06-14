@@ -6,7 +6,8 @@ namespace Notenverwaltung.Persistenz
 {
     public class CSVSubject
     {
-        private static readonly string PATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\fach.csv";
+        private static readonly string PATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung";
+        private static readonly string PATH_SUBJECTS = $@"{PATH}\fach.csv";
 
         public static List<Subject> Subjects { get; set; } = new();
 
@@ -38,14 +39,10 @@ namespace Notenverwaltung.Persistenz
         public static void ReadAll ()
         {
             if (!Directory.Exists(PATH))
-            {
                 Directory.CreateDirectory(PATH);
-            }
 
             if (!File.Exists(PATH))
-            {
                 File.Create(PATH).Close();
-            }
 
             List<string> lines = new();
             StreamReader sr = new(File.Open(PATH, FileMode.Open));

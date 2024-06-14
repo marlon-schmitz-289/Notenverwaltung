@@ -6,8 +6,9 @@ namespace Notenverwaltung.Persistenz
 {
     public static class CSVGrade
     {
-        private static readonly string PATH_GRADES = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\noten.csv";
-        private static readonly string PATH_LAST_ID = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung\last.txt";
+        private static readonly string PATH = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Notenverwaltung";
+        private static readonly string PATH_GRADES = $@"{PATH}\noten.csv";
+        private static readonly string PATH_LAST_ID = $@"{PATH}\last.txt";
 
         public static List<Grade> Grades = new();
 
