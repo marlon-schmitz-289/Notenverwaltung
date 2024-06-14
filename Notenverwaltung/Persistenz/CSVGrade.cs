@@ -24,10 +24,11 @@ namespace Notenverwaltung.Persistenz
 
         public static void ReadAll ()
         {
+            if (!Directory.Exists(PATH))
+                Directory.CreateDirectory(PATH);
+
             if (!File.Exists(PATH_GRADES))
-            {
                 File.Create(PATH_GRADES).Close();
-            }
 
             Grades = new();
             List<string> lines = new();
@@ -42,16 +43,6 @@ namespace Notenverwaltung.Persistenz
             {
                 string[] parts = line.Split(';');
 
-                // Possibility 1:
-                //Grades.Add(new Grade(
-                //  Int32.Parse(parts[0]),
-                //  new(parts[1], false),
-                //  Int32.Parse(parts[2]),
-                //  (Type)Int32.Parse(parts[3])),
-                //  DateTime.Parse(parts[4])
-                //);
-
-                // Possibility 2:
                 Grades.Add(new Grade()
                 {
                     Id = int.Parse(parts[0]),

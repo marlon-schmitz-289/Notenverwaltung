@@ -41,11 +41,11 @@ namespace Notenverwaltung.Persistenz
             if (!Directory.Exists(PATH))
                 Directory.CreateDirectory(PATH);
 
-            if (!File.Exists(PATH))
-                File.Create(PATH).Close();
+            if (!File.Exists(PATH_SUBJECTS))
+                File.Create(PATH_SUBJECTS).Close();
 
             List<string> lines = new();
-            StreamReader sr = new(File.Open(PATH, FileMode.Open));
+            StreamReader sr = new(File.Open(PATH_SUBJECTS, FileMode.Open));
 
             while (!sr.EndOfStream)
                 lines.Add(sr.ReadLine());
