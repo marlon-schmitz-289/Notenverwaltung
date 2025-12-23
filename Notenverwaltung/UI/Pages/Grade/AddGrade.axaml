@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="560" d:DesignHeight="350"
+             x:Class="Notenverwaltung.UI.Pages.Grade.AddGrade">
+
+    <Border Padding="20">
+        <StackPanel Spacing="15">
+            <TextBlock x:Name="TxtTitle" FontSize="24" FontWeight="Bold" Margin="0,0,0,5" />
+
+            <Border CornerRadius="8" Padding="20"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+                <StackPanel Spacing="20">
+                    <Grid RowDefinitions="Auto,15,Auto,15,Auto,15,Auto" ColumnDefinitions="100,*">
+                        <TextBlock x:Name="TxtSubject" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
+                        <ComboBox x:Name="CbxSubject" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch"
+                                  MaxDropDownHeight="160" SelectionChanged="ComboBox_SelectionChanged" />
+
+                        <TextBlock x:Name="TxtRating" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
+                        <ComboBox x:Name="CbxRating" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
+                                  MaxDropDownHeight="160" SelectionChanged="ComboBox_SelectionChanged" />
+
+                        <TextBlock x:Name="TxtType" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" />
+                        <ComboBox x:Name="CbxType" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch"
+                                  MaxDropDownHeight="160" SelectionChanged="ComboBox_SelectionChanged" />
+
+                        <TextBlock x:Name="TxtDate" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" />
+                        <CalendarDatePicker x:Name="DpDate" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+                        <Button x:Name="BtnClear" Click="BtnClear_Click" IsEnabled="False">
+                            <Button.Styles>
+                                <Style Selector="Button:disabled PathIcon">
+                                    <Setter Property="Opacity" Value="0.3"/>
+                                </Style>
+                            </Button.Styles>
+                            <PathIcon Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                                      Width="16" Height="16" />
+                        </Button>
+                        <Button x:Name="BtnSave" Classes="accent" Click="BtnSave_Click" IsEnabled="False">
+                            <Button.Styles>
+                                <Style Selector="Button:disabled PathIcon">
+                                    <Setter Property="Opacity" Value="0.3"/>
+                                </Style>
+                            </Button.Styles>
+                            <PathIcon Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"
+                                      Width="16" Height="16" />
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Border>
+
+</UserControl>

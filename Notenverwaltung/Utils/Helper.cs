@@ -1,19 +1,17 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection;
+using Notenverwaltung.Model.Enums;
+using Notenverwaltung.Resources;
 
-namespace Notenverwaltung.Utils
+namespace Notenverwaltung.Utils;
+
+public static class Helper
 {
-  public static class Helper
-  {
-    public static string GetDisplayName(this Enum enumValue)
+    public static string GetDisplayName(this TypeGrade gradeType)
     {
-      return enumValue?.GetType()
-        .GetMember(enumValue.ToString())
-        .First()
-        .GetCustomAttribute<DisplayAttribute>()
-        ?.GetName();
+        return gradeType switch
+        {
+            TypeGrade.Simple => Strings.GradeTypeSimple,
+            TypeGrade.Double => Strings.GradeTypeDouble,
+            _ => gradeType.ToString()
+        };
     }
-  }
 }

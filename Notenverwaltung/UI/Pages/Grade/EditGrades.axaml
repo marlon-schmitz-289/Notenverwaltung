@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="560" d:DesignHeight="350"
+             x:Class="Notenverwaltung.UI.Pages.Grade.EditGrades">
+
+    <Border Padding="20">
+        <StackPanel Spacing="15">
+            <TextBlock x:Name="TxtTitle" FontSize="24" FontWeight="Bold" Margin="0,0,0,5" />
+
+            <Grid ColumnDefinitions="*,Auto,Auto">
+                <ComboBox x:Name="LbxGrades" Grid.Column="0" HorizontalAlignment="Stretch"
+                          MaxDropDownHeight="160" SelectionChanged="LbxGrades_SelectionChanged" Margin="0,0,10,0" />
+                <Button x:Name="BtnSave" Grid.Column="1"
+                        Click="BtnSave_Click" Margin="0,0,5,0" IsEnabled="False"
+                        Width="{Binding $self.Bounds.Height}" VerticalAlignment="Stretch">
+                    <Button.Styles>
+                        <Style Selector="Button:disabled PathIcon">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Style>
+                    </Button.Styles>
+                    <PathIcon Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"
+                              Width="16" Height="16" />
+                </Button>
+                <Button x:Name="BtnAdd" Grid.Column="2"
+                        Click="BtnAdd_Click"
+                        Width="{Binding $self.Bounds.Height}" VerticalAlignment="Stretch">
+                    <PathIcon Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                              Width="16" Height="16" />
+                </Button>
+            </Grid>
+
+            <Border x:Name="EditPanel" CornerRadius="8" Padding="20" IsEnabled="False"
+                    Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+                <Grid RowDefinitions="Auto,15,Auto,15,Auto,15,Auto" ColumnDefinitions="100,*">
+                    <TextBlock x:Name="TxtSubject" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
+                    <ComboBox x:Name="LbxSubject" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" MaxDropDownHeight="160" />
+
+                    <TextBlock x:Name="TxtRating" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" />
+                    <ComboBox x:Name="LbxRating" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" MaxDropDownHeight="160" />
+
+                    <TextBlock x:Name="TxtType" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" />
+                    <ComboBox x:Name="LbxType" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" MaxDropDownHeight="160" />
+
+                    <TextBlock x:Name="TxtDate" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" />
+                    <CalendarDatePicker x:Name="DpDate" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Border>
+
+</UserControl>

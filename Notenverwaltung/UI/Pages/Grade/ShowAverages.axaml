@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="560" d:DesignHeight="350"
+             x:Class="Notenverwaltung.UI.Pages.Grade.ShowAverages">
+
+    <Border Padding="20">
+        <Grid RowDefinitions="Auto,Auto,*">
+            <TextBlock x:Name="TxtTitle" Grid.Row="0" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" />
+            <ComboBox x:Name="CbxSort" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,0,15"
+                      SelectionChanged="CbxSort_SelectionChanged" />
+            <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="ItemsAvgs" Margin="0,0,10,0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Spacing="10" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+
+</UserControl>

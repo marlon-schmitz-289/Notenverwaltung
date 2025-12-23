@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="560" d:DesignHeight="350"
+             x:Class="Notenverwaltung.UI.Pages.Grade.ShowGrades">
+
+    <Border Padding="20">
+        <Grid RowDefinitions="Auto,Auto,*">
+            <!-- First row: Subject and Type filters -->
+            <Grid Grid.Row="0" ColumnDefinitions="*,*,Auto" Margin="0,0,0,10">
+                <ComboBox x:Name="CbxSubjects" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,10,0"
+                          MaxDropDownHeight="160" SelectionChanged="CbxSubjects_SelectionChanged" />
+                <ComboBox x:Name="CbxType" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,10,0"
+                          MaxDropDownHeight="160" SelectionChanged="CbxType_SelectionChanged" />
+                <Button x:Name="BtnDelete" Grid.Column="2" Click="BtnDelete_Click" IsEnabled="False">
+                    <Button.Styles>
+                        <Style Selector="Button:disabled PathIcon">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Style>
+                    </Button.Styles>
+                    <PathIcon Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"
+                              Width="16" Height="16" />
+                </Button>
+            </Grid>
+
+            <!-- Second row: Date filters -->
+            <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto,*,Auto" Margin="0,0,0,15">
+                <TextBlock x:Name="TxtFrom" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,8,0" />
+                <CalendarDatePicker x:Name="DpFrom" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,0,15,0"
+                            SelectedDateChanged="DateFilter_Changed" />
+                <TextBlock x:Name="TxtTo" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0" />
+                <CalendarDatePicker x:Name="DpTo" Grid.Column="3" HorizontalAlignment="Stretch" Margin="0,0,10,0"
+                            SelectedDateChanged="DateFilter_Changed" />
+                <Button x:Name="BtnClearDate" Grid.Column="4" Click="BtnClearDate_Click">
+                    <PathIcon Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                              Width="14" Height="14" />
+                </Button>
+            </Grid>
+
+            <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="GradesItems" Margin="0,0,10,0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Spacing="6" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+
+</UserControl>

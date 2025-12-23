@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="0"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+
+    <!-- App Title -->
+    <data name="AppTitle" xml:space="preserve">
+    <value>Grade Manager</value>
+  </data>
+
+    <!-- Main Window - Menu Buttons -->
+    <data name="Menu_AddGrade" xml:space="preserve">
+    <value>Add Grade</value>
+  </data>
+    <data name="Menu_ManageGrades" xml:space="preserve">
+    <value>Manage Grades</value>
+  </data>
+    <data name="Menu_ShowAverages" xml:space="preserve">
+    <value>Show Averages</value>
+  </data>
+    <data name="Menu_ShowAllGrades" xml:space="preserve">
+    <value>Show All Grades</value>
+  </data>
+    <data name="Menu_EditSubjects" xml:space="preserve">
+    <value>Edit Subjects</value>
+  </data>
+
+    <!-- Common -->
+    <data name="Common_PleaseSelect" xml:space="preserve">
+    <value>- please select -</value>
+  </data>
+
+    <!-- AddGrade Page -->
+    <data name="AddGrade_Title" xml:space="preserve">
+    <value>Add Grade</value>
+  </data>
+    <data name="AddGrade_Subject" xml:space="preserve">
+    <value>Subject:</value>
+  </data>
+    <data name="AddGrade_Rating" xml:space="preserve">
+    <value>Grade:</value>
+  </data>
+    <data name="AddGrade_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+    <data name="AddGrade_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+    <data name="AddGrade_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+    <data name="AddGrade_FillAllFields" xml:space="preserve">
+    <value>Please fill in all fields!</value>
+  </data>
+    <data name="AddGrade_SavedSuccessfully" xml:space="preserve">
+    <value>Grade saved successfully</value>
+  </data>
+    <data name="AddGrade_Error" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+    <data name="AddGrade_Date" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+
+    <!-- EditGrades Page -->
+    <data name="EditGrades_Title" xml:space="preserve">
+    <value>Manage Grades</value>
+  </data>
+    <data name="EditGrades_Subject" xml:space="preserve">
+    <value>Subject:</value>
+  </data>
+    <data name="EditGrades_Rating" xml:space="preserve">
+    <value>Rating:</value>
+  </data>
+    <data name="EditGrades_Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+    <data name="EditGrades_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+    <data name="EditGrades_AddNew" xml:space="preserve">
+    <value>New Grade</value>
+  </data>
+    <data name="EditGrades_Date" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+
+    <!-- ShowGrades Page -->
+    <data name="ShowGrades_AllSubjects" xml:space="preserve">
+    <value>All Subjects</value>
+  </data>
+    <data name="ShowGrades_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+
+    <!-- ShowAverages Page -->
+    <data name="ShowAverages_Title" xml:space="preserve">
+    <value>Grade Averages</value>
+  </data>
+    <data name="ShowAverages_NoEntries" xml:space="preserve">
+    <value>No grades available</value>
+  </data>
+    <data name="ShowAverages_FinalGrade" xml:space="preserve">
+    <value>Final Grade: {0}</value>
+  </data>
+    <data name="ShowAverages_Average" xml:space="preserve">
+    <value>Average</value>
+  </data>
+
+    <!-- EditSubs Page -->
+    <data name="EditSubs_Title" xml:space="preserve">
+    <value>Manage Subjects</value>
+  </data>
+    <data name="EditSubs_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+    <data name="EditSubs_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+
+    <!-- SubEditDlg -->
+    <data name="SubEditDlg_Title" xml:space="preserve">
+    <value>Edit Subject</value>
+  </data>
+    <data name="SubEditDlg_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+
+    <!-- FirstTimeSubjectsDialog -->
+    <data name="FirstTime_Title" xml:space="preserve">
+    <value>Set Up Subjects</value>
+  </data>
+    <data name="FirstTime_AutoSaveHint" xml:space="preserve">
+    <value>List content will be saved automatically when closing this window</value>
+  </data>
+    <data name="FirstTime_SubjectNamePlaceholder" xml:space="preserve">
+    <value>Enter subject name...</value>
+  </data>
+    <data name="FirstTime_SaveToList" xml:space="preserve">
+    <value>Save subject to list</value>
+  </data>
+    <data name="FirstTime_RemoveFromList" xml:space="preserve">
+    <value>Remove entry from list</value>
+  </data>
+    <data name="FirstTime_Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+
+    <!-- MessageDialog -->
+    <data name="MessageDialog_Title" xml:space="preserve">
+    <value>Message</value>
+  </data>
+    <data name="MessageDialog_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+
+    <!-- Messages -->
+    <data name="Message_WaitForData" xml:space="preserve">
+    <value>Please wait until the data has been loaded</value>
+  </data>
+
+    <!-- Discord Status Messages -->
+    <data name="Discord_MainMenu" xml:space="preserve">
+    <value>Main Menu</value>
+  </data>
+    <data name="Discord_DoingNothing" xml:space="preserve">
+    <value>Currently doing absolutely nothing</value>
+  </data>
+    <data name="Discord_ClosingApp" xml:space="preserve">
+    <value>Closing the application</value>
+  </data>
+    <data name="Discord_ClosingAppState" xml:space="preserve">
+    <value>Guess they had enough</value>
+  </data>
+    <data name="Discord_GradesOverview" xml:space="preserve">
+    <value>Overview of all grades</value>
+  </data>
+    <data name="Discord_ViewingGrades" xml:space="preserve">
+    <value>viewing grade entries</value>
+  </data>
+    <data name="Discord_AveragesOverview" xml:space="preserve">
+    <value>Overview of grade averages</value>
+  </data>
+    <data name="Discord_ViewingBadAverages" xml:space="preserve">
+    <value>looking at bad averages</value>
+  </data>
+    <data name="Discord_AddingGrade" xml:space="preserve">
+    <value>Adding a grade entry</value>
+  </data>
+    <data name="Discord_AddingBadGrade" xml:space="preserve">
+    <value>adding a new bad grade</value>
+  </data>
+    <data name="Discord_EditingGrades" xml:space="preserve">
+    <value>Editing grade entries</value>
+  </data>
+    <data name="Discord_FalsifyingGrades" xml:space="preserve">
+    <value>falsifying grade entries</value>
+  </data>
+    <data name="Discord_EditingSubjects" xml:space="preserve">
+    <value>Editing registered subjects</value>
+  </data>
+    <data name="Discord_MessingWithSchedule" xml:space="preserve">
+    <value>messing with the schedule</value>
+  </data>
+    <data name="Discord_EditingSubjectList" xml:space="preserve">
+    <value>Editing the subject list</value>
+  </data>
+    <data name="Discord_EditingSubjectListState" xml:space="preserve">
+    <value>Heavily messing with the schedule</value>
+  </data>
+    <data name="Discord_AddingSubject" xml:space="preserve">
+    <value>Adding a subject</value>
+  </data>
+    <data name="Discord_ForgotSubject" xml:space="preserve">
+    <value>Forgot a subject LOL</value>
+  </data>
+
+    <!-- Theme -->
+    <data name="Theme_LightMode" xml:space="preserve">
+    <value>Light Mode</value>
+  </data>
+    <data name="Theme_DarkMode" xml:space="preserve">
+    <value>Dark Mode</value>
+  </data>
+
+    <!-- Settings Page -->
+    <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+    <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+    <data name="Settings_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+    <data name="Settings_Language_System" xml:space="preserve">
+    <value>System Default</value>
+  </data>
+    <data name="Settings_Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+    <data name="Settings_Theme_System" xml:space="preserve">
+    <value>System Default</value>
+  </data>
+    <data name="Settings_Theme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+    <data name="Settings_Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+    <data name="Settings_RestartHint" xml:space="preserve">
+    <value>Some changes will only take full effect after restarting the application.</value>
+  </data>
+    <data name="Discord_Settings" xml:space="preserve">
+    <value>Adjusting application settings</value>
+  </data>
+    <data name="Discord_ChangingSettings" xml:space="preserve">
+    <value>too dumb to configure</value>
+  </data>
+
+    <!-- Grade Types -->
+    <data name="GradeType_Simple" xml:space="preserve">
+    <value>Oral Grade</value>
+  </data>
+    <data name="GradeType_Double" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+
+    <!-- Sort Options -->
+    <data name="Sort_ByName" xml:space="preserve">
+    <value>By Name (A-Z)</value>
+  </data>
+    <data name="Sort_ByGradeAsc" xml:space="preserve">
+    <value>By Grade (best first)</value>
+  </data>
+    <data name="Sort_ByGradeDesc" xml:space="preserve">
+    <value>By Grade (worst first)</value>
+  </data>
+
+    <!-- Filter Options -->
+    <data name="Filter_AllTypes" xml:space="preserve">
+    <value>All Types</value>
+  </data>
+    <data name="Filter_From" xml:space="preserve">
+    <value>From:</value>
+  </data>
+    <data name="Filter_To" xml:space="preserve">
+    <value>To:</value>
+  </data>
+    <data name="Filter_ClearDate" xml:space="preserve">
+    <value>Clear date filter</value>
+  </data>
+</root>

@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Application secrets (Discord client ID, API keys, etc.)
+secrets.json
+
+# macOS
+.DS_Store
+
+# JetBrains Rider
+.idea/
