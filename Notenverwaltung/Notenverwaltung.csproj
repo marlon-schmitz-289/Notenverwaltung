@@ -5,7 +5,6 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 
         <!-- Assembly metadata -->
@@ -18,9 +17,51 @@
         <FileVersion>1.0.0.0</FileVersion>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
 
-        <!-- Windows-specific settings -->
-        <ApplicationIcon Condition="Exists('icon.ico')">icon.ico</ApplicationIcon>
+        <!-- Publishing settings -->
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <PublishTrimmed>false</PublishTrimmed>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    </PropertyGroup>
+
+    <!-- Windows-specific settings -->
+    <PropertyGroup Condition="$(RuntimeIdentifier.StartsWith('win'))">
+        <PublishDir>publish/windows/</PublishDir>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationIcon Condition="Exists('Resources/icon.ico')">Resources/icon.ico</ApplicationIcon>
         <Win32Manifest>app.manifest</Win32Manifest>
+    </PropertyGroup>
+
+    <!-- macOS ARM settings -->
+    <PropertyGroup Condition="$(RuntimeIdentifier) == 'osx-arm64'">
+        <PublishDir>publish/macos-arm64/</PublishDir>
+        <UseAppHost>true</UseAppHost>
+        <OutputType>WinExe</OutputType>
+        <CFBundleName>Notenverwaltung</CFBundleName>
+        <NSHighResolutionCapable>true</NSHighResolutionCapable>
+    </PropertyGroup>
+
+    <!-- macOS Intel settings -->
+    <PropertyGroup Condition="$(RuntimeIdentifier) == 'osx-x64'">
+        <PublishDir>publish/macos-x64/</PublishDir>
+        <UseAppHost>true</UseAppHost>
+        <OutputType>WinExe</OutputType>
+        <CFBundleName>Notenverwaltung</CFBundleName>
+        <NSHighResolutionCapable>true</NSHighResolutionCapable>
+    </PropertyGroup>
+
+    <!-- Linux x64 settings -->
+    <PropertyGroup Condition="$(RuntimeIdentifier) == 'linux-x64'">
+        <PublishDir>publish/linux-x64/</PublishDir>
+        <UseAppHost>true</UseAppHost>
+        <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+
+    <!-- Linux ARM settings -->
+    <PropertyGroup Condition="$(RuntimeIdentifier) == 'linux-arm64'">
+        <PublishDir>publish/linux-arm64/</PublishDir>
+        <UseAppHost>true</UseAppHost>
+        <OutputType>WinExe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>

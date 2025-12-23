@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Text.Json;
 using DiscordRPC;
-using DiscordRPC.Logging;
 
 namespace Notenverwaltung.Utils;
 
@@ -15,10 +14,7 @@ public static class DiscordClient
     {
         var secretsPath = Path.Combine(AppContext.BaseDirectory, "secrets.json");
         if (!File.Exists(secretsPath))
-        {
-            Console.WriteLine("secrets.json not found. Discord Rich Presence disabled.");
             return null;
-        }
 
         try
         {
@@ -26,9 +22,8 @@ public static class DiscordClient
             var secrets = JsonSerializer.Deserialize<JsonElement>(json);
             return secrets.GetProperty("DiscordClientId").GetString();
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Failed to read Discord client ID: {ex.Message}");
             return null;
         }
     }
@@ -39,17 +34,7 @@ public static class DiscordClient
         if (string.IsNullOrEmpty(clientId))
             return;
 
-        Client = new DiscordRpcClient(clientId)
-        {
-            Logger = new ConsoleLogger { Level = LogLevel.Warning }
-        };
-
-        Client.OnReady += (sender, e) =>
-            Console.WriteLine("Received Ready from user {0}", e.User.Username);
-
-        Client.OnPresenceUpdate += (sender, e) =>
-            Console.WriteLine("Received Update! {0}", e.Presence);
-
+        Client = new DiscordRpcClient(clientId);
         Client.Initialize();
 
         _presence = new RichPresence

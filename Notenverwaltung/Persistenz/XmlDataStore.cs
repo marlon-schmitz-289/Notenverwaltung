@@ -117,9 +117,8 @@ public static class XmlDataStore
                 _isLoaded = true;
             }
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error loading data: {ex.Message}");
             Grades = new List<Grade>();
             Subjects = new List<Subject>();
             _lastGradeId = 0;
@@ -161,9 +160,9 @@ public static class XmlDataStore
             using var stream = File.Create(DataFile);
             serializer.Serialize(stream, data);
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error saving data: {ex.Message}");
+            // Silently fail - data will be saved on next attempt
         }
     }
 
